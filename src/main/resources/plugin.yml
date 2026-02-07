@@ -1,0 +1,33 @@
+name: MagicGem
+main: com.illtamer.plugin.magicgemtiny.MagicGemTiny
+author: IllTamer
+version: 1.0.0-SNAPSHOT
+depend:
+  - PlayerPoints
+  - Vault
+  - NBTAPI
+softdepend:
+  - MythicMobs
+  - MMOItems
+  - PlaceHolderAPI
+  - MythicArtifacts
+  - MythicCrucible
+  - Residence
+  - PvPManager
+  - EcoEnchants
+  - GoldenEnchants
+api-version: 1.13
+commands:
+  mgem:
+    description: magicgem info
+    usage: /mgem
+permissions:
+  magicgem.command.admin:
+    description: All plugin permission
+    default: op
+  magicgem.command.view:
+    description: View gem list
+    default: op
+#  magicgem.command.embed:
+#    description: Open embed GUI by command
+#    default: op

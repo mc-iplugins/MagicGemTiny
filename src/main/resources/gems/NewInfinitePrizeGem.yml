@@ -1,0 +1,716 @@
+镐之灵石+1_1:
+  Name: 镐之灵石+1_1
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 80
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &f普通"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限20%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x6"
+    - "&b - &e金币 &6x2000"
+    - "&b成功率: &a80%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=20}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=6}
+    - Money{amount=-2000}
+
+镐之灵石+1_2:
+  Name: 镐之灵石+1_2
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 70
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &6稀有"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限40%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x8"
+    - "&b - &e金币 &6x3000"
+    - "&b成功率: &a70%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=40}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=8}
+    - Money{amount=-3000}
+
+镐之灵石+1_3:
+  Name: 镐之灵石+1_3
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 60
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &5史诗"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限60%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x12"
+    - "&b - &e金币 &6x5000"
+    - "&b成功率: &a60%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=60}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=12}
+    - Money{amount=-5000}
+
+镐之灵石+1_4:
+  Name: 镐之灵石+1_4
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 50
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &e传说"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限80%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x16"
+    - "&b - &e金币 &6x8000"
+    - "&b成功率: &a50%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=80}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=16}
+    - Money{amount=-8000}
+
+镐之灵石+1_5:
+  Name: 镐之灵石+1_5
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 40
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &c神话"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限100%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x24"
+    - "&b - &e金币 &6x10000"
+    - "&b成功率: &a40%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=100}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=24}
+    - Money{amount=-10000}
+
+镐之灵石+1_6:
+  Name: 镐之灵石+1_6
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 30
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &d魔幻"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限120%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x32"
+    - "&b - &e金币 &6x15000"
+    - "&b成功率: &a30%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=120}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=32}
+    - Money{amount=-15000}
+
+镐之灵石+1_7:
+  Name: 镐之灵石+1_7
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 20
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &4无限"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限150%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x48"
+    - "&b - &e金币 &6x20000"
+    - "&b成功率: &a20%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=150}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=48}
+    - Money{amount=-20000}
+
+镐之灵石+1_8:
+  Name: 镐之灵石+1_8
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 10
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &4无限+"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限180%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x64"
+    - "&b - &e金币 &6x30000"
+    - "&b成功率: &a10%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=180}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=64}
+    - Money{amount=-30000}
+
+镐之灵石+1_9:
+  Name: 镐之灵石+1_9
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&x&0&7&f&2&9&5&l镐之灵石&d&l&k||"
+  Success: 10
+  Tips:
+    - "&x&0&7&f&2&9&5&l镐之灵石 &7品质: &4无限++"
+    - "&7在工作台内放入需要强化的镐子"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统挖矿爆率&a1%&7(上限200%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x96"
+    - "&b - &e金币 &6x50000"
+    - "&b成功率: &a10%"
+  Material: "PAPER"
+  CustomModelData: 10787
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&f&2&9&5&l镐之灵石&f, 镐子增加&b无限幸运系统挖矿爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_dig;var=v+1;limit=v>=0&&v<=200}
+    - "LoreVar{lore=&b★ 镐之灵石祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=96}
+    - Money{amount=-50000}
+
+
+
+渔之星珠+1_1:
+  Name: 渔之星珠+1_1
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 80
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &f普通"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限20%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x6"
+    - "&b - &e金币 &6x2000"
+    - "&b成功率: &a80%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=20}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=6}
+    - Money{amount=-2000}
+
+渔之星珠+1_2:
+  Name: 渔之星珠+1_2
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 70
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &6稀有"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限40%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x8"
+    - "&b - &e金币 &6x3000"
+    - "&b成功率: &a70%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=40}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=8}
+    - Money{amount=-3000}
+
+渔之星珠+1_3:
+  Name: 渔之星珠+1_3
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 60
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &5史诗"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限60%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x12"
+    - "&b - &e金币 &6x5000"
+    - "&b成功率: &a60%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=60}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=12}
+    - Money{amount=-5000}
+
+渔之星珠+1_4:
+  Name: 渔之星珠+1_4
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 50
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &e传说"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限80%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x16"
+    - "&b - &e金币 &6x8000"
+    - "&b成功率: &a50%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=80}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=16}
+    - Money{amount=-8000}
+
+渔之星珠+1_5:
+  Name: 渔之星珠+1_5
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 40
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &c神话"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限100%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x24"
+    - "&b - &e金币 &6x10000"
+    - "&b成功率: &a40%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=100}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=24}
+    - Money{amount=-10000}
+
+渔之星珠+1_6:
+  Name: 渔之星珠+1_6
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 30
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &d魔幻"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限120%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x32"
+    - "&b - &e金币 &6x15000"
+    - "&b成功率: &a30%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=120}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=32}
+    - Money{amount=-15000}
+
+渔之星珠+1_7:
+  Name: 渔之星珠+1_7
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 20
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &4无限"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限150%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x48"
+    - "&b - &e金币 &6x20000"
+    - "&b成功率: &a20%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=150}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=48}
+    - Money{amount=-20000}
+
+渔之星珠+1_8:
+  Name: 渔之星珠+1_8
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 10
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &4无限+"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限180%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x64"
+    - "&b - &e金币 &6x30000"
+    - "&b成功率: &a10%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=180}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=64}
+    - Money{amount=-30000}
+
+渔之星珠+1_9:
+  Name: 渔之星珠+1_9
+  Require:
+    - FISHING_ROD
+  Display: "&d&l&k||&x&0&7&d&2&f&2&l渔之星珠&d&l&k||"
+  Success: 10
+  Tips:
+    - "&x&0&7&d&2&f&2&l渔之星珠 &7品质: &4无限++"
+    - "&7在工作台内放入需要强化的鱼竿"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统钓鱼爆率&a1%&7(上限200%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x96"
+    - "&b - &e金币 &6x50000"
+    - "&b成功率: &a10%"
+  Material: "PAPER"
+  CustomModelData: 10869
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&0&7&d&2&f&2&l渔之星珠&f, 鱼竿增加&b无限幸运系统钓鱼爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string_fishing;var=v+1;limit=v>=0&&v<=200}
+    - "LoreVar{lore=&b★ 渔之星珠祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=96}
+    - Money{amount=-50000}
+
+
+
+幸运晶纹+1_1:
+  Name: 幸运晶纹+1_1
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 80
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &f普通"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限20%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x8"
+    - "&b - &e金币 &6x3000"
+    - "&b成功率: &a80%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=20}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=8}
+    - Money{amount=-3000}
+
+幸运晶纹+1_2:
+  Name: 幸运晶纹+1_2
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 70
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &6稀有"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限40%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x12"
+    - "&b - &e金币 &6x5000"
+    - "&b成功率: &a70%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=40}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=12}
+    - Money{amount=-5000}
+
+幸运晶纹+1_3:
+  Name: 幸运晶纹+1_3
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 60
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &5史诗"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限60%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x16"
+    - "&b - &e金币 &6x8000"
+    - "&b成功率: &a60%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=60}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=16}
+    - Money{amount=-8000}
+
+幸运晶纹+1_4:
+  Name: 幸运晶纹+1_4
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 50
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &e传说"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限80%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x24"
+    - "&b - &e金币 &6x10000"
+    - "&b成功率: &a50%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=80}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=24}
+    - Money{amount=-10000}
+
+幸运晶纹+1_5:
+  Name: 幸运晶纹+1_5
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 40
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &c神话"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限100%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x32"
+    - "&b - &e金币 &6x15000"
+    - "&b成功率: &a40%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=100}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=32}
+    - Money{amount=-15000}
+
+幸运晶纹+1_6:
+  Name: 幸运晶纹+1_6
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 30
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &d魔幻"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限120%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x48"
+    - "&b - &e金币 &6x20000"
+    - "&b成功率: &a30%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=120}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=48}
+    - Money{amount=-20000}
+
+幸运晶纹+1_7:
+  Name: 幸运晶纹+1_7
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 20
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &4无限"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限150%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x64"
+    - "&b - &e金币 &6x30000"
+    - "&b成功率: &a20%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=150}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=64}
+    - Money{amount=-30000}
+
+幸运晶纹+1_8:
+  Name: 幸运晶纹+1_8
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 10
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &4无限+"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限180%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x96"
+    - "&b - &e金币 &6x50000"
+    - "&b成功率: &a10%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=180}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=96}
+    - Money{amount=-50000}
+
+幸运晶纹+1_9:
+  Name: 幸运晶纹+1_9
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+  Display: "&d&l&k||&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&d&l&k||"
+  Success: 10
+  Tips:
+    - "&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹 &7品质: &4无限++"
+    - "&7在工作台内放入需要强化的工具"
+    - "&7再通过鼠标左键拿起该宝石"
+    - "&7并对其进行点击"
+    - "&7即可使工具增加以下效果:"
+    - "&b无限幸运系统爆率&a1%&7(上限200%)"
+    - "&6需要材料: "
+    - "&b - &8&l[&x&f&f&6&6&f&f&l无限灵晶&8&l] &6x128"
+    - "&b - &e金币 &6x80000"
+    - "&b成功率: &a10%"
+  Material: "PAPER"
+  CustomModelData: 10360
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&x&f&0&2&d&f&0&l幸&x&5&6&6&c&f&0&l运&x&0&0&b&9&e&5&l晶&x&1&c&f&9&b&1&l纹&f, 工具增加&b无限幸运系统爆率&a1%"
+  Rewards:
+    - NBTDouble{name=main-hand-string;var=v+1;limit=v>=0&&v<=200}
+    - "LoreVar{lore=&b★ 幸运晶纹祝福: &a+;format=%.0f%%;var=v+1;mode=before;locator=[ Buff ]}"
+    - ItemTake{LORE:无限灵晶-=128}
+    - Money{amount=-80000}
+
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function-configuration>
+    <!-- -->
+    <bean class="com.illtamer.plugin.magicgemtiny.libs.ikexpression.function.SystemFunctions">
+        <function name="CONTAINS" method="contains">
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+        </function>
+        <function name="STARTSWITH" method="startsWith">
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+        </function>
+        <function name="ENDSWITH" method="endsWith">
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+        </function>
+        <function name="CALCDATE" method="calcDate">
+            <parameter-type>java.util.Date</parameter-type>
+            <parameter-type>int</parameter-type>
+            <parameter-type>int</parameter-type>
+            <parameter-type>int</parameter-type>
+            <parameter-type>int</parameter-type>
+            <parameter-type>int</parameter-type>
+            <parameter-type>int</parameter-type>
+        </function>
+        <function name="LOG" method="logarithm">
+            <parameter-type>double</parameter-type>
+        </function>
+        <function name="SQRT" method="sqrt">
+            <parameter-type>double</parameter-type>
+        </function>
+        <function name="POW" method="pow">
+            <parameter-type>double</parameter-type>
+            <parameter-type>double</parameter-type>
+        </function>
+        <function name="FLOOR" method="floor">
+            <parameter-type>double</parameter-type>
+        </function>
+        <function name="RANDINT" method="randInt">
+            <parameter-type>int</parameter-type>
+            <parameter-type>int</parameter-type>
+        </function>
+        <function name="SYSDATE" method="sysDate"/>
+        <function name="RANDOM" method="random"/>
+        <function name="DAYEQUALS" method="dayEquals">
+            <parameter-type>java.util.Date</parameter-type>
+            <parameter-type>java.util.Date</parameter-type>
+        </function>
+    </bean>
+
+    <!--
+
+    <bean class="org.wltea.expression.test.TestFunctions">
+        <function name="method="sayHello">
+            <parameter-type>double</parameter-type>
+        </function>
+    </bean>
+    -->
+
+
+</function-configuration>

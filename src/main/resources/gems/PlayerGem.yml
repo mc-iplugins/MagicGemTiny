@@ -1,0 +1,1154 @@
+# 玩家直接使用的宝石
+Version: 1.05
+
+内置-点券兑换券-500:
+  Name: 点券兑换券-500
+  Type: PlayerGem
+  Display: "&8&l&k||&9&l点券兑换券&8&l&k||"
+  Tips:
+    - "&7获得&9500&f点券"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTc4NDRhNDU1NGY5MzYzZDY1OTkwNmQ2MzEyODE4YTExMjJhMWY5YTkyYTIzMjYyYjFlNjc3MDIyMzJiYjcifX19
+  Rewards:
+    - Point{amount=500} $onSuccess
+
+内置-点券兑换券-1000:
+  Name: 点券兑换券-1000
+  Type: PlayerGem
+  Display: "&8&l&k||&9&l点券兑换券&8&l&k||"
+  Tips:
+    - "&7获得&91000&f点券"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTc4NDRhNDU1NGY5MzYzZDY1OTkwNmQ2MzEyODE4YTExMjJhMWY5YTkyYTIzMjYyYjFlNjc3MDIyMzJiYjcifX19
+  Rewards:
+    - Point{amount=1000} $onSuccess
+    - Command{command=abcm send 902512642 %player_name% 1000点券兑换券}
+
+内置-点券兑换券-2000:
+  Name: 点券兑换券-2000
+  Type: PlayerGem
+  Display: "&8&l&k||&9&l点券兑换券&8&l&k||"
+  Tips:
+    - "&7获得&92000&f点券"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTc4NDRhNDU1NGY5MzYzZDY1OTkwNmQ2MzEyODE4YTExMjJhMWY5YTkyYTIzMjYyYjFlNjc3MDIyMzJiYjcifX19
+  Rewards:
+    - Point{amount=2000} $onSuccess
+    - Command{command=abcm send 902512642 %player_name% 2000点券兑换券}
+
+内置-点券兑换券-10000:
+  Name: 点券兑换券-10000
+  Type: PlayerGem
+  Display: "&8&l&k||&9&l点券兑换券&8&l&k||"
+  Tips:
+    - "&7获得&910000&f点券"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTc4NDRhNDU1NGY5MzYzZDY1OTkwNmQ2MzEyODE4YTExMjJhMWY5YTkyYTIzMjYyYjFlNjc3MDIyMzJiYjcifX19
+  Rewards:
+    - Point{amount=10000} $onSuccess
+    - Command{command=abcm send 902512642 %player_name% 10000点券兑换券}
+
+内置-随机点券兑换券:
+  Name: 随机点券兑换券-500-10000
+  Type: RandomGem
+  Display: "&8&l&k||&9&l随机点券兑换券&8&l&k||"
+  Tips:
+    - "&7使用后按如下概率获得点券"
+    - "&7 - 1% 获得 &910000 &f点券"
+    - "&7 - 10% 获得 &92000 &f点券"
+    - "&7 - 20% 获得 &91000 &f点券"
+    - "&7 - 69% 获得 &9500 &f点券"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTc4NDRhNDU1NGY5MzYzZDY1OTkwNmQ2MzEyODE4YTExMjJhMWY5YTkyYTIzMjYyYjFlNjc3MDIyMzJiYjcifX19
+  Gems:
+    点券兑换券-10000: 1
+    点券兑换券-2000: 10
+    点券兑换券-1000: 20
+    点券兑换券-500: 69
+
+内置-随机点券兑换券2:
+  Name: 随机点券兑换券-100-3000
+  Type: PlayerGem
+  Display: "&8&l&k||&9&l随机点券兑换券&8&l&k||"
+  Tips:
+    - "&7随机获得&9100&f-&93000&f点券"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTc4NDRhNDU1NGY5MzYzZDY1OTkwNmQ2MzEyODE4YTExMjJhMWY5YTkyYTIzMjYyYjFlNjc3MDIyMzJiYjcifX19
+  Rewards:
+    - Point{amount=100+2900*$RANDOM()} $onSuccess
+
+内置-金币兑换券-1000:
+  Name: 金币兑换券-1000
+  Type: PlayerGem
+  Display: "&8&l&k||&e&l金币兑换券&8&l&k||"
+  Tips:
+    - "&7获得&e1000&f金币"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM3Y2FlNWM1MWViMTU1OGVhODI4ZjU4ZTBkZmY4ZTZiN2IwYjFhMTgzZDczN2VlY2Y3MTQ2NjE3NjEifX19
+  Rewards:
+    - Money{amount=1000} $onSuccess
+
+内置-金币兑换券-2000:
+  Name: 金币兑换券-2000
+  Type: PlayerGem
+  Display: "&8&l&k||&e&l金币兑换券&8&l&k||"
+  Tips:
+    - "&7获得&e2000&f金币"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM3Y2FlNWM1MWViMTU1OGVhODI4ZjU4ZTBkZmY4ZTZiN2IwYjFhMTgzZDczN2VlY2Y3MTQ2NjE3NjEifX19
+  Rewards:
+    - Money{amount=2000} $onSuccess
+
+内置-金币兑换券-5000:
+  Name: 金币兑换券-5000
+  Type: PlayerGem
+  Display: "&8&l&k||&e&l金币兑换券&8&l&k||"
+  Tips:
+    - "&7获得&e5000&f金币"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM3Y2FlNWM1MWViMTU1OGVhODI4ZjU4ZTBkZmY4ZTZiN2IwYjFhMTgzZDczN2VlY2Y3MTQ2NjE3NjEifX19
+  Rewards:
+    - Money{amount=5000} $onSuccess
+
+内置-金币兑换券-10000:
+  Name: 金币兑换券-10000
+  Type: PlayerGem
+  Display: "&8&l&k||&e&l金币兑换券&8&l&k||"
+  Tips:
+    - "&7获得&e10000&f金币"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM3Y2FlNWM1MWViMTU1OGVhODI4ZjU4ZTBkZmY4ZTZiN2IwYjFhMTgzZDczN2VlY2Y3MTQ2NjE3NjEifX19
+  Rewards:
+    - Money{amount=10000} $onSuccess
+
+内置-金币兑换券-100000:
+  Name: 金币兑换券-100000
+  Type: PlayerGem
+  Display: "&8&l&k||&e&l金币兑换券&8&l&k||"
+  Tips:
+    - "&7获得&e100000&f金币"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM3Y2FlNWM1MWViMTU1OGVhODI4ZjU4ZTBkZmY4ZTZiN2IwYjFhMTgzZDczN2VlY2Y3MTQ2NjE3NjEifX19
+  Rewards:
+    - Money{amount=100000} $onSuccess
+
+内置-随机金币兑换券:
+  Name: 随机金币兑换券-1000-100000
+  Type: RandomGem
+  Display: "&8&l&k||&e&l随机金币兑换券&8&l&k||"
+  Tips:
+    - "&7使用后按如下概率获得金币"
+    - "&7 - 1% 获得 &e100000 &f金币"
+    - "&7 - 10% 获得 &e10000 &f金币"
+    - "&7 - 30% 获得 &e2000 &f金币"
+    - "&7 - 59% 获得 &e1000 &f金币"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM3Y2FlNWM1MWViMTU1OGVhODI4ZjU4ZTBkZmY4ZTZiN2IwYjFhMTgzZDczN2VlY2Y3MTQ2NjE3NjEifX19
+  Gems:
+    金币兑换券-100000: 1
+    金币兑换券-10000: 10
+    金币兑换券-2000: 30
+    金币兑换券-1000: 59
+
+内置-随机金币兑换券2:
+  Name: 随机金币兑换券-1000-10000
+  Type: PlayerGem
+  Display: "&8&l&k||&e&l金币兑换券&8&l&k||"
+  Tips:
+    - "&7随机获得&e1000&f-&e10000&f金币"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "none"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM3Y2FlNWM1MWViMTU1OGVhODI4ZjU4ZTBkZmY4ZTZiN2IwYjFhMTgzZDczN2VlY2Y3MTQ2NjE3NjEifX19
+  Rewards:
+    - Money{amount=1000+9000*$RANDOM()} $onSuccess
+
+内置-蛇胆:
+  Name: 蛇胆
+  Type: PlayerGem
+  Display: "&8&l&k||&c&l蛇胆&8&l&k||"
+  Success: 100
+  Tips:
+    - "&7饮用后永久增加&c1&7点生命"
+    - "&7上限为30点"
+  Material: "POTION"
+  Color: "MAROON"
+  Eat: true
+  SuccessTip: "&f您饮用了&c&l蛇胆&f, 生命上限永久&c&l+1"
+  Rewards:
+    - MaxHealth{amount=1;limit=30} $onSuccess
+
+内置-龙胆:
+  Name: 龙胆
+  Type: PlayerGem
+  Display: "&8&l&k||&6&l龙胆&8&l&k||"
+  Tips:
+    - "&7饮用后永久增加&62&7点生命"
+    - "&7上限为60点"
+  Material: "POTION"
+  Color: "GOLD"
+  Eat: true
+  SuccessTip: "&f您饮用了&6&l龙胆&f, 生命上限永久&6&l+2"
+  Rewards:
+    - MaxHealth{amount=2;limit=60} $onSuccess
+
+内置-经验药水:
+  Name: 经验药水
+  Type: PlayerGem
+  Display: "&8&l&k||&a&l经验药水&8&l&k||"
+  Tips:
+    - "&7饮用后立即增加&a50&7级经验"
+  Material: "POTION"
+  Color: "LIME"
+  Eat: true
+  SuccessTip: "&f您饮用了&a&l经验药水&f, 经验等级&a&l+50"
+  Rewards:
+    - ExpLevel{amount=50} $onSuccess
+    
+vip1_3d:
+  Name: 领袖群伦3天
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&7&l-&fㄐ&7&l-[&a&l3天&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取3天&fㄐ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄐ&7-&a3天"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZjNzk4NTM5NjA1MmZlYzVhMjIzZTY0N2UxNzlmZDQ4N2ZkNjhlMjQ0MTVlMTk2MjM1OWE0YTk2ZmJjZTFiNyJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip1 3d accumulate}
+    
+vip2_3d:
+  Name: 独步一时3天
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&7&l-&fㄒ&7&l-[&a&l3天&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取3天&fㄒ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄒ&7-&a3天"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmFlMTE5YTIzODJlZGE4NjRiMjQ0ZmE4YzUzYWMzZTU0NDE2MzEwM2VlNjY3OTVmMGNkNmM2NGY3YWJiOGNmMSJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip2 3d accumulate}
+    
+vip3_7d:
+  Name: 冠绝天下3天
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&7&l-&fㄓ&7&l-[&a&l3天&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取3天&fㄓ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄓ&7-&a3天"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQ1ZTg1ZWRkYTFhODFkMjI0YWRiNzEzYjEzYjcwMzhkNWNjNmJlY2Q5OGE3MTZiOGEzZGVjN2UzYTBmOTgxNyJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip3 3d accumulate}
+    
+vip1_30d:
+  Name: 领袖群伦30天
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&7&l-&fㄐ&7&l-[&a&l30天&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取30天&fㄐ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄐ&7-&a30天"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZjNzk4NTM5NjA1MmZlYzVhMjIzZTY0N2UxNzlmZDQ4N2ZkNjhlMjQ0MTVlMTk2MjM1OWE0YTk2ZmJjZTFiNyJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip1 30d accumulate}
+    
+vip2_30d:
+  Name: 独步一时30天
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&7&l-&fㄒ&7&l-[&a&l30天&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取30天&fㄒ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄒ&7-&a30天"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmFlMTE5YTIzODJlZGE4NjRiMjQ0ZmE4YzUzYWMzZTU0NDE2MzEwM2VlNjY3OTVmMGNkNmM2NGY3YWJiOGNmMSJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip2 30d accumulate}
+    
+vip3_30d:
+  Name: 冠绝天下30天
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&7&l-&fㄓ&7&l-[&a&l30天&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取30天&fㄓ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄓ&7-&a30天"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQ1ZTg1ZWRkYTFhODFkMjI0YWRiNzEzYjEzYjcwMzhkNWNjNmJlY2Q5OGE3MTZiOGEzZGVjN2UzYTBmOTgxNyJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip3 30d accumulate}
+
+vip1_365d:
+  Name: 领袖群伦1年
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&7&l-&fㄐ&7&l-[&c&l1年&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取1年&fㄐ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄐ&7-&c1年"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZjNzk4NTM5NjA1MmZlYzVhMjIzZTY0N2UxNzlmZDQ4N2ZkNjhlMjQ0MTVlMTk2MjM1OWE0YTk2ZmJjZTFiNyJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip1 1y accumulate}
+    
+vip2_365d:
+  Name: 独步一时1年
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&7&l-&fㄒ&7&l-[&c&l1年&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取1年&fㄒ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄒ&7-&c1年"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmFlMTE5YTIzODJlZGE4NjRiMjQ0ZmE4YzUzYWMzZTU0NDE2MzEwM2VlNjY3OTVmMGNkNmM2NGY3YWJiOGNmMSJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip2 1y accumulate}
+    
+vip3_365d:
+  Name: 冠绝天下1年
+  Type: PlayerGem
+  Display: "&8&l&k||&b&l兑换券&fㄓ&7&l-[&c&l1年&7&l]&8&l&k||"
+  Tips:
+    - "&7使用后获取1年&fㄓ&7及对应权限"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功兑换&fㄓ&7-&c1年"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQ1ZTg1ZWRkYTFhODFkMjI0YWRiNzEzYjEzYjcwMzhkNWNjNmJlY2Q5OGE3MTZiOGEzZGVjN2UzYTBmOTgxNyJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% parent addtemp vip3 1y accumulate}
+    
+mcmmo_10:
+  Name: 骇客代码
+  Type: PlayerGem
+  Display: "&b&l&k||&8&l骇客代码&b&l&k||"
+  Tips:
+    - "&7永久获取&amcMMO&c&l10倍&7经验加成"
+    - "&c注意：只可使用一次，多次使用不叠加！"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功获取mcMMO&c&l10倍&b经验加成!"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmEzZDk3NDBkZjIyMjE3N2I2NzhmNjgxZmY3OTQ5NTNhZTQzMjU1ZDhjNjU3NzIzNjgxZjNlNmY5ZThlNzMxIn19fQ==
+  Rewards:
+    - Command{command=lp user %player_name% permission set mcmmo.perks.xp.customboost.*} 
+    
+cratekey1:
+  Name: 无限宝箱钥匙
+  Type: PlayerGem
+  Material: PAPER
+  CustomModelData: 10016
+  Display: "&d&l&k||&b&l无限宝箱钥匙&d&l&k||"
+  Tips:
+    - "&7用于打开&b无限宝箱&7的钥匙"
+    - "&7使用后前往主城右前方开启宝箱"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！请前往主城右前方开启宝箱"
+  Rewards:
+    - Command{command=crate key give %player_name% 1 1}
+    
+cratekey2:
+  Name: 宝石宝箱钥匙
+  Type: PlayerGem
+  Display: "&d&l&k||&6&l宝石钥匙&d&l&k||"
+  Tips:
+    - "&7用于打开&1宝石宝箱&7的钥匙"
+    - "&7使用后前往主城右前方开启宝箱"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！请前往主城右前方开启宝箱"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjIxNWU4ZWJlZmYwYTIwMDhmMTRiZGEwNzJmNzU2MTVkYWNhYzBjNGRhYmM5MGQ5ZDUyY2MzMjE0ZTVjNTM1NyJ9fX0=
+  Rewards:
+    - Command{command=crate givekey %player_name% 3 1}
+
+cratekey3:
+  Name: 神奇钥匙
+  Type: PlayerGem
+  Display: "&b&l&k||&4&l神奇钥匙&b&l&k||"
+  Tips:
+    - "&7用于打开&4&l神奇宝箱&7的钥匙"
+    - "&7使用后前往主城右前方开启宝箱"
+    - "&7(&c!&7) 右键使用"
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！请前往主城右前方开启宝箱"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGZkMTQ4OWY4NWNkZTNjNzkyMmIyNzg3NDlmZDE3Y2JiNmI3ZDE0NzlkMmQ2YzI5ZDgzM2FmYjNlZjU5NDgzNiJ9fX0=
+  Rewards:
+    - Command{command=crate givekey %player_name% 6 1}
+
+无限方块体验卡-1天:
+  Name: 无限方块体验卡-1天
+  Type: PlayerGem
+  Display: "&e&l无限方块体验卡&7&l-&7&l[&a&l1天&7&l]"
+  Tips:
+    - "&7使用后可使用无限方块"
+    - "&7无限方块需要在主菜单内自行购买"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2E3Y2RhOTAwNGZjMTk3ZDY2YWZiYzJiMDAzYTViOWVmMTNjZjQ2MDBiMWZjNzQ5MDA2NzU5MGYwNDcxODFlIn19fQ==
+  Rewards:
+    - Command{command=lp user %player_name% permission settemp magicblock.block.default 1d accumulate}
+无限方块体验卡-7天:
+  Name: 无限方块体验卡-7天
+  Type: PlayerGem
+  Display: "&e&l无限方块体验卡&7&l-&7&l[&b&l7天&7&l]"
+  Tips:
+    - "&7使用后可使用无限方块"
+    - "&7无限方块需要在主菜单内自行购买"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2E3Y2RhOTAwNGZjMTk3ZDY2YWZiYzJiMDAzYTViOWVmMTNjZjQ2MDBiMWZjNzQ5MDA2NzU5MGYwNDcxODFlIn19fQ==
+  Rewards:
+    - Command{command=lp user %player_name% permission settemp magicblock.block.default 7d accumulate}
+    
+无限福袋-周卡:
+  Name: 无限福袋-周卡
+  Type: PlayerGem
+  Display: "&b&l无限福袋&7&l-[&a&l周卡&7&l]"
+  Tips:
+    - "&7使用后可获取一周无限福袋周卡福利"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzYwYTA4ZGE4ZDNlNzNjNWFkZGNjMTAzODk1NjU2YWM0MDRmZjQyZjJkNWI1Yjc0NmNjZGU2MDdjZTkwNDQzYyJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% permission settemp superkits.kits.福袋周卡 1w accumulate}
+    - Command{command=lp user %player_name% permission settemp essentials.kits.week true 1w accumulate}
+
+无限福袋-月卡:
+  Name: 无限福袋-月卡
+  Type: PlayerGem
+  Display: "&b&l无限福袋&7&l-[&6&l月卡&7&l]"
+  Tips:
+    - "&7使用后可获取一个月无限福袋月卡福利"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGYxNGQxYTQ2ZjdjMWMwODQ2ODhjNjM0ZjUwZDJhZDc3ZDk4Nzk2MTlmZjg4MmNkN2RiN2U0YTJlNTA1MTlmOSJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% permission settemp superkits.kits.福袋月卡 1mo accumulate}
+    - Command{command=lp user %player_name% permission settemp essentials.kits.month true 1mo accumulate}
+
+无限福袋-季卡:
+  Name: 无限福袋-季卡
+  Type: PlayerGem
+  Display: "&b&l无限福袋&7&l-[&c&l季卡&7&l]"
+  Tips:
+    - "&7使用后可获取三个月无限福袋季卡福利"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjA4MDAzYWUxZGVjNjQxN2IxNDA3MDQ2MjdhMDA3MTk2ZTUxNmFlZWM5YjM5NGFmNzhkNzAxOTJjOGUzNTE1ZCJ9fX0=
+  Rewards:
+    - Command{command=lp user %player_name% permission settemp superkits.kits.福袋季卡 3mo accumulate}
+    - Command{command=lp user %player_name% permission settemp essentials.kits.jk true 3mo accumulate}
+    
+
+熔铸之心_不可拆卸:
+  Name: 熔铸之心_不可拆卸
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&c&l熔铸之心&d&l&k||"
+  Success: 100
+  Tips:
+    - "&c&l熔铸之心宝石 &7品质: &4&l无限"
+    - "&7在工作台内点击此宝石,"
+    - "&7再点击您的镐子"
+    - "&7即可使镐子增加熔炼效果"
+    - "&7成功率: &a100%"
+    - "&7可花费3000点券拆卸"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjkwMWYwNzg1ZDIyMmU5YWZhNTA1NmNkZGFmZGI3YTMzYTRhYTljODllOTEyZWU3MWYzM2I2ZDc2MzEwNTRkIn19fQ==
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&c&l熔铸之心宝石&f, 镐子附带&c熔炼效果"
+  Rewards:
+    - NBTString{name=wxtool;var=wxtool-melting}
+    - LoreAdd{lore=&c🔥 &c&l熔炼;mode=after;locator=[ Buff ]}
+    
+熔铸之心:
+  Name: 熔铸之心
+  Embed: 1
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&c&l熔铸之心&d&l&k||"
+  Success: 100
+  Tips:
+    - "&c&l熔铸之心宝石 &7品质: &4&l无限"
+    - "&7在工作台内点击此宝石,"
+    - "&7再点击您的镐子"
+    - "&7即可使镐子增加熔炼效果"
+    - "&7成功率: &a100%"
+    - "&7可花费3000点券拆卸"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjkwMWYwNzg1ZDIyMmU5YWZhNTA1NmNkZGFmZGI3YTMzYTRhYTljODllOTEyZWU3MWYzM2I2ZDc2MzEwNTRkIn19fQ==
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&c&l熔铸之心宝石&f, 镐子附带&c熔炼效果"
+  Rewards:
+    - NBTString{name=wxtool;var=wxtool-melting}
+    - LoreAdd{lore=&c🔥 &c&l熔炼;mode=after;locator=[ Buff ]}
+    - Point{amount=-3000} $onRemove
+
+矿透宝石:
+  Name: 矿透宝石
+  Embed: 1
+  Require:
+    - _PICKAXE
+  Display: "&d&l&k||&d&l矿物透视宝石&d&l&k||"
+  Success: 100
+  Tips:
+    - "&d&l矿物透视宝石 &7品质: &d&l魔幻"
+    - "&7在工作台内点击此宝石,"
+    - "&7再点击您的镐子"
+    - "&7即可使镐子增加&d矿物透视&f效果"
+    - "&7成功率: &a100%"
+    - "&7可花费3000点券拆卸"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDc3NGU1ZWYzZDhiY2RlOWVhMjFjMzRiODQ4MjdkMzQ1MzFlNjhmMTExNTEwZjMzODMwNTVlY2FhNzRiZWJjYyJ9fX0=
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&d&l矿物透视宝石&f, 镐子附带&d矿物透视&f效果%"
+  Rewards:
+    - NBTString{name=infinity_xray;var=1}
+    - LoreAdd{lore=&d&l☉ 矿物透视;mode=before;locator=[ Buff ]}
+    - Point{amount=-3000} $onRemove
+    
+    
+  
+无限印记:
+  Name: 无限印记
+  Require:
+    - WEAPON
+    - TOOL
+    - ARMOR
+    - PAPER
+  Display: "&e&l&k||&d&l无限印记&e&l&k||"
+  Success: 50
+  Tips:
+    - "&d&l无限印记 &7品质: &4&l无限"
+    - "&7在工作台内点击此宝石,"
+    - "&7再点击您的装备/工具/武器"
+    - "&7即可使装备/工具/武器增加&a1个"
+    - "&d药水&7[&6BUFF&7]槽位(上限3个槽位)"
+    - "&7成功率: &a50%"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTBmNTBmOWJjZjRhYzRlY2YxOGZhNzEyMmYyYjI0NDQyNmE1MjEwNGIzNzNjODcxMzY4YzhlMjg4YmZiZTY2NCJ9fX0=
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&d&l无限印记&f, 装备/工具/武器增加&a1个&d药水&7[&6BUFF&7]槽位"
+  Rewards:
+    - "LoreAdd{lore=&6&l[&c&lBUFF&6&l] &8&l无效果;limit=3}"
+  
+神铸之晶1:
+  Name: 神铸之晶1
+  Require:
+    - WEAPON
+    - TOOL
+    - ARMOR
+    - PAPER
+    - FISHING_ROD
+  Display: "&e&l&k||&d&l神铸之晶&e&l&k||"
+  Success: 100
+  Tips:
+    - "&d&l神铸之晶 &7品质: &d&l魔幻"
+    - "&7在工作台内点击该晶体"
+    - "&7再点击您的装备/工具/武器"
+    - "&7即可使装备/工具/武器在下一次使用强化宝石时"
+    - "&7增加&a10%&7强化成功率"
+    - "&6需要材料: "
+    - "&b - &e金币 &6x30000"
+    - "&b - &9点券 &6x180"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGY3NDY3YzVmNzM4YzY0MTI0NmMwOWY4Y2U3OTFlMzM5YTg2ZTgxZGU2MjA0OWI0MWY0OTI4ODgxNzJmYTcyNiJ9fX0=
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&d&l神铸之晶&f, 装备/工具/武器在下一次使用强化宝石时增加&a10%&7成功率"
+  Rewards:
+    - "LoreVar{lore=&d强化成功率增幅: &a+;format=%.0f%%;var=v+10;limit=v<=100;mode=last}"
+    - Money{amount=-30000}
+    - Point{amount=-180}
+    
+daytoken:
+  Name: 每日任务重置代币
+  Type: PlayerGem
+  Display: "&8&l&k||&d&l重置代币&7&l-&a&l每日任务&7&l&8&l&k||"
+  Tips:
+    - "&7使用后获取1个&a每日任务&d重置代币"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功使用&d重置代币&7-&a每日任务"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQyMzI4OTUxMGM1NGI2N2RmMDIzNTgwOTc5YzQ2NWQwNDgxYzc2OWM4NjViZjRiNDY1Y2Y0Nzg3NDlmMWM0ZiJ9fX0=
+  Rewards:
+    - Command{command=excellentchallenges rerolltokens give %player_name% daily 1}
+
+weektoken:
+  Name: 每周任务重置代币
+  Type: PlayerGem
+  Display: "&8&l&k||&d&l重置代币&7&l-&b&l每周任务&7&l&8&l&k||"
+  Tips:
+    - "&7使用后获取1个&b每周任务&d重置代币"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功使用&d重置代币&7-&b每周任务"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQyMzI4OTUxMGM1NGI2N2RmMDIzNTgwOTc5YzQ2NWQwNDgxYzc2OWM4NjViZjRiNDY1Y2Y0Nzg3NDlmMWM0ZiJ9fX0=
+  Rewards:
+    - Command{command=excellentchallenges rerolltokens give %player_name% weekly 1}
+
+monthtoken:
+  Name: 每月任务重置代币
+  Type: PlayerGem
+  Display: "&8&l&k||&d&l重置代币&7&l-&6&l每月任务&7&l&8&l&k||"
+  Tips:
+    - "&7使用后获取1个&6每月任务&d重置代币"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+  SuccessTip: "&7[&b系统提示&7] &b恭喜您成功使用&d重置代币&7-&6每月任务"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQyMzI4OTUxMGM1NGI2N2RmMDIzNTgwOTc5YzQ2NWQwNDgxYzc2OWM4NjViZjRiNDY1Y2Y0Nzg3NDlmMWM0ZiJ9fX0=
+  Rewards:
+    - Command{command=excellentchallenges rerolltokens give %player_name% monthly 1}
+
+
+随机宝石礼盒:
+  Name: 随机宝石礼盒
+  Type: RandomGem
+  Give: true
+  Display: "&7[&b&l随机宝石礼盒&7]"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTdiYzI1MWE2Y2IwZDZkOWYwNWM1NzExOTExYTZlYzI0YjIwOWRiZTY0MjY3OTAxYTRiMDM3NjFkZWJjZjczOCJ9fX0=
+  Tips:
+    - "&7使用后随机获得以下宝石"
+    - "&7 - &8&l&k||&d&l时运宝石&8&l&k||"
+    - "&7 - &8&l&k||&c&l锋利宝石&8&l&k||"
+    - "&7 - &8&l&k||&8&l抢夺宝石&8&l&k||"
+    - "&7 - &8&l&k||&e&l力量宝石&8&l&k||"
+    - "&7 - &8&l&k||&b&l耐久宝石&8&l&k||"
+    - "&7 - &8&l&k||&3&l保护宝石&8&l&k||"
+    - "&7 - &8&l&k||&7&l亡灵杀手宝石&8&l&k||"
+    - "&7 - &8&l&k||&6&l节肢杀手宝石&8&l&k||"
+    - "&7 - &8&l&k||&b&l海之眷顾宝石&8&l&k||"
+    - "&7 - &8&l&k||&a&l生命上限宝石&8&l&k||"
+    - "&7 - &8&l&k||&a&l效率宝石&8&l&k||"
+    - "&7 - &8&l&k||&2&l荆棘宝石&8&l&k||"
+    - "&7(&c!&7) 右键打开"
+  SuccessTip: "&7[&b系统提示&7] &b使用成功！"
+  Gems:
+    时运宝石3_1: 10
+    锋利宝石3_1: 10
+    抢夺宝石3_1: 10
+    力量宝石3_1: 10
+    耐久宝石3_1: 10
+    保护宝石3_1: 10
+    亡灵杀手宝石3_1: 10
+    节肢杀手宝石3_1: 10
+    海之眷顾宝石3_1: 10
+    生命上限宝石3_1: 10
+    效率宝石3_1: 10
+    荆棘宝石3_1: 10
+
+
+
+
+
+
+幸运晶纹_末影箱:
+  Name: 幸运晶纹_末影箱
+  Require:
+    - _PICKAXE
+    - FISHING_ROD
+    - PAPER
+    - PLAYER_HEAD
+    - ARMOR
+  Display: "&d&l&k||&b&l幸运晶纹_末影箱&d&l&k||&6&l+10%"
+  Success: 100
+  Tips:
+    - "&b&l幸运晶纹 &7品质: &4&l无限"
+    - "&7在工作台内点击此宝石,"
+    - "&7再点击您的镐子/鱼竿"
+    - "&7即可使镐子/鱼竿增加"
+    - "&b无限幸运系统爆率&a10%&7(无上限)"
+    - "&7成功率: &a100%"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGY3NDY3YzVmNzM4YzY0MTI0NmMwOWY4Y2U3OTFlMzM5YTg2ZTgxZGU2MjA0OWI0MWY0OTI4ODgxNzJmYTcyNiJ9fX0=
+  SuccessTip: "&7[&b系统提示&7] &f你使用了&b&l幸运晶纹&f, 镐子/鱼竿增加&b无限幸运系统爆率&a&l10%"
+  Rewards:
+    - NBTDouble{name=end-inventory-string;var=v+10;limit=v>=0&&v<=9999}
+    - "LoreVar{lore=&x&6&6&f&f&0&0★ 无限幸运系爆率: &a+;format=%.0f%%;var=v+10;mode=before;locator=[ Buff ]}"
+     
+
+     
+
+无限灵晶礼盒1:
+  Name: 无限灵晶礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&f&f&6&6&f&f&l无限灵晶礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&f&f&6&6&f&f&l无限灵晶 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10205
+  Rewards:
+    - Command{command=mi give MATERIAL 无限灵晶 %player_name% 1-8}
+无限灵晶礼盒2:
+  Name: 无限灵晶礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&f&f&6&6&f&f&l无限灵晶礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&f&f&6&6&f&f&l无限灵晶 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10205
+  Rewards:
+    - Command{command=mi give MATERIAL 无限灵晶 %player_name% 1-12}
+
+时运宝财礼盒1:
+  Name: 时运宝财礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&F&F&0&0&F&F&l时运宝财礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&F&F&0&0&F&F&l时运宝财 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10201
+  Rewards:
+    - Command{command=mi give MATERIAL 时运宝财 %player_name% 1-8} $onSuccess
+时运宝财礼盒2:
+  Name: 时运宝财礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&F&F&0&0&F&F&l时运宝财礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&F&F&0&0&F&F&l时运宝财 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10201
+  Rewards:
+    - Command{command=mi give MATERIAL 时运宝财 %player_name% 1-12}
+
+锋利源泉礼盒1:
+  Name: 锋利源泉礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&D&C&1&4&3&C&l锋利源泉礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&D&C&1&4&3&C&l锋利源泉 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10202
+  Rewards:
+    - Command{command=mi give MATERIAL 锋利源泉 %player_name% 1-8}
+锋利源泉礼盒2:
+  Name: 锋利源泉礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&D&C&1&4&3&C&l锋利源泉礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&D&C&1&4&3&C&l锋利源泉 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10202
+  Rewards:
+    - Command{command=mi give MATERIAL 锋利源泉 %player_name% 1-12}
+
+掠夺晶芒礼盒1:
+  Name: 掠夺晶芒礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&E&E&A&D&0&E&l掠夺晶芒礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&E&E&A&D&0&E&l掠夺晶芒 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10207
+  Rewards:
+    - Command{command=mi give MATERIAL 掠夺晶芒 %player_name% 1-8}
+掠夺晶芒礼盒2:
+  Name: 掠夺晶芒礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&E&E&A&D&0&E&l掠夺晶芒礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&E&E&A&D&0&E&l掠夺晶芒 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10207
+  Rewards:
+    - Command{command=mi give MATERIAL 掠夺晶芒 %player_name% 1-12}
+
+力量之源礼盒1:
+  Name: 力量之源礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&E&E&E&E&0&0&l力量之源礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&E&E&E&E&0&0&l力量之源 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10196
+  Rewards:
+    - Command{command=mi give MATERIAL 力量之源 %player_name% 1-8}
+力量之源礼盒2:
+  Name: 力量之源礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&E&E&E&E&0&0&l力量之源礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&E&E&E&E&0&0&l力量之源 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10196
+  Rewards:
+    - Command{command=mi give MATERIAL 力量之源 %player_name% 1-12}
+
+不朽之星礼盒1:
+  Name: 不朽之星礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&6&9&5&9&C&D&l不朽之星礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&6&9&5&9&C&D&l不朽之星 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10209
+  Rewards:
+    - Command{command=mi give MATERIAL 不朽之星 %player_name% 1-8}
+不朽之星礼盒2:
+  Name: 不朽之星礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&6&9&5&9&C&D&l不朽之星礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&6&9&5&9&C&D&l不朽之星 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10209
+  Rewards:
+    - Command{command=mi give MATERIAL 不朽之星 %player_name% 1-12}
+
+守护晶盾礼盒1:
+  Name: 守护晶盾礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&6&6&6&6&f&f&l守护晶盾礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&6&6&6&6&f&f&l守护晶盾 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10198
+  Rewards:
+    - Command{command=mi give MATERIAL 守护晶盾 %player_name% 1-8}
+守护晶盾礼盒2:
+  Name: 守护晶盾礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&6&6&6&6&f&f&l守护晶盾礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&6&6&6&6&f&f&l守护晶盾 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10198
+  Rewards:
+    - Command{command=mi give MATERIAL 守护晶盾 %player_name% 1-12}
+
+幽冥晶魂礼盒1:
+  Name: 幽冥晶魂礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&9&9&0&0&6&6&l幽冥晶魂礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&9&9&0&0&6&6&l幽冥晶魂 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10203
+  Rewards:
+    - Command{command=mi give MATERIAL 幽冥晶魂 %player_name% 1-8}
+幽冥晶魂礼盒2:
+  Name: 幽冥晶魂礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&9&9&0&0&6&6&l幽冥晶魂礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&9&9&0&0&6&6&l幽冥晶魂 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10203
+  Rewards:
+    - Command{command=mi give MATERIAL 幽冥晶魂 %player_name% 1-12}
+
+节肢晶影礼盒1:
+  Name: 节肢晶影礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&f&f&6&6&0&0&l节肢晶影礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&f&f&6&6&0&0&l节肢晶影 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10204
+  Rewards:
+    - Command{command=mi give MATERIAL 节肢晶影 %player_name% 1-8}
+节肢晶影礼盒2:
+  Name: 节肢晶影礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&f&f&6&6&0&0&l节肢晶影礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&f&f&6&6&0&0&l节肢晶影 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10204
+  Rewards:
+    - Command{command=mi give MATERIAL 节肢晶影 %player_name% 1-12}
+
+海澜晶魄礼盒1:
+  Name: 海澜晶魄礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&6&3&B&8&F&F&l海澜晶魄礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&6&3&B&8&F&F&l海澜晶魄 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10199
+  Rewards:
+    - Command{command=mi give MATERIAL 海澜晶魄 %player_name% 1-8}
+海澜晶魄礼盒2:
+  Name: 海澜晶魄礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&6&3&B&8&F&F&l海澜晶魄礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&6&3&B&8&F&F&l海澜晶魄 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10199
+  Rewards:
+    - Command{command=mi give MATERIAL 海澜晶魄 %player_name% 1-12}
+
+生命晶华礼盒1:
+  Name: 生命晶华礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&0&0&f&f&9&9&l生命晶华礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&0&0&f&f&9&9&l生命晶华 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10208
+  Rewards:
+    - Command{command=mi give MATERIAL 生命晶华 %player_name% 1-8}
+生命晶华礼盒2:
+  Name: 生命晶华礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&0&0&f&f&9&9&l生命晶华礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&0&0&f&f&9&9&l生命晶华 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10208
+  Rewards:
+    - Command{command=mi give MATERIAL 生命晶华 %player_name% 1-12}
+
+灵速晶心礼盒1:
+  Name: 灵速晶心礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&3&3&3&3&f&f&l灵速晶心礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&3&3&3&3&f&f&l灵速晶心 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10197
+  Rewards:
+    - Command{command=mi give MATERIAL 灵速晶心 %player_name% 1-8}
+灵速晶心礼盒2:
+  Name: 灵速晶心礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&3&3&3&3&f&f&l灵速晶心礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&3&3&3&3&f&f&l灵速晶心 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10197
+  Rewards:
+    - Command{command=mi give MATERIAL 灵速晶心 %player_name% 1-12}
+
+荆棘之刺礼盒1:
+  Name: 荆棘之刺礼盒1
+  Type: PlayerGem
+  Display: "&7&l[&x&B&4&E&E&B&4&l荆棘之刺礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&B&4&E&E&B&4&l荆棘之刺 &6x1-8"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10200
+  Rewards:
+    - Command{command=mi give MATERIAL 荆棘之刺 %player_name% 1-8}
+荆棘之刺礼盒2:
+  Name: 荆棘之刺礼盒2
+  Type: PlayerGem
+  Display: "&7&l[&x&B&4&E&E&B&4&l荆棘之刺礼盒&7&l]"
+  Tips:
+    - "&7使用后随机获得以下材料: "
+    - "&7 - &x&B&4&E&E&B&4&l荆棘之刺 &6x1-12"
+    - "&7(&c!&7) Shift+右键使用"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Material: "PAPER"
+  CustomModelData: 10200
+  Rewards:
+    - Command{command=mi give MATERIAL 荆棘之刺 %player_name% 1-12}
+
+随机材料礼盒1:
+  Name: 随机材料礼盒1
+  Type: RandomGem
+  Display: "&7[&6&l随机材料礼盒&7]"
+  Material: "PAPER"
+  CustomModelData: 10212
+  Tips:
+    - "&7使用后随机获得以下材料"
+    - "&7 - &x&F&F&0&0&F&F&l时运宝财 &6&lx1-8"
+    - "&7 - &x&D&C&1&4&3&C&l锋利源泉 &6&lx1-8"
+    - "&7 - &x&E&E&A&D&0&E&l掠夺晶芒 &6&lx1-8"
+    - "&7 - &x&E&E&E&E&0&0&l力量之源 &6&lx1-8"
+    - "&7 - &x&6&9&5&9&C&D&l不朽之星 &6&lx1-8"
+    - "&7 - &x&6&6&6&6&f&f&l守护晶盾 &6&lx1-8"
+    - "&7 - &x&9&9&0&0&6&6&l幽冥晶魂 &6&lx1-8"
+    - "&7 - &x&f&f&6&6&0&0&l节肢晶影 &6&lx1-8"
+    - "&7 - &x&6&3&B&8&F&F&l海澜晶魄 &6&lx1-8"
+    - "&7 - &x&0&0&f&f&9&9&l生命晶华 &6&lx1-8"
+    - "&7 - &x&3&3&3&3&f&f&l灵速晶心 &6&lx1-8"
+    - "&7 - &x&B&4&E&E&B&4&l荆棘之刺 &6&lx1-8"
+    - "&7(&c!&7) Shift+右键打开"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Gems:
+    时运宝财礼盒1: 10
+    锋利源泉礼盒1: 10
+    掠夺晶芒礼盒1: 10
+    力量之源礼盒1: 10
+    不朽之星礼盒1: 10
+    守护晶盾礼盒1: 10
+    幽冥晶魂礼盒1: 10
+    节肢晶影礼盒1: 10
+    海澜晶魄礼盒1: 10
+    生命晶华礼盒1: 10
+    灵速晶心礼盒1: 10
+    荆棘之刺礼盒1: 10
+随机材料礼盒2:
+  Name: 随机材料礼盒2
+  Type: RandomGem
+  Display: "&7[&6&l随机材料礼盒&7]"
+  Material: "PAPER"
+  CustomModelData: 10212
+  Tips:
+    - "&7使用后随机获得以下材料"
+    - "&7 - &x&F&F&0&0&F&F&l时运宝财 &6&lx1-12"
+    - "&7 - &x&D&C&1&4&3&C&l锋利源泉 &6&lx1-12"
+    - "&7 - &x&E&E&A&D&0&E&l掠夺晶芒 &6&lx1-12"
+    - "&7 - &x&E&E&E&E&0&0&l力量之源 &6&lx1-12"
+    - "&7 - &x&6&9&5&9&C&D&l不朽之星 &6&lx1-12"
+    - "&7 - &x&6&6&6&6&f&f&l守护晶盾 &6&lx1-12"
+    - "&7 - &x&9&9&0&0&6&6&l幽冥晶魂 &6&lx1-12"
+    - "&7 - &x&f&f&6&6&0&0&l节肢晶影 &6&lx1-12"
+    - "&7 - &x&6&3&B&8&F&F&l海澜晶魄 &6&lx1-12"
+    - "&7 - &x&0&0&f&f&9&9&l生命晶华 &6&lx1-12"
+    - "&7 - &x&3&3&3&3&f&f&l灵速晶心 &6&lx1-12"
+    - "&7 - &x&B&4&E&E&B&4&l荆棘之刺 &6&lx1-12"
+    - "&7(&c!&7) Shift+右键打开"
+  Shift: true
+#  Shiny: true
+  SuccessTip: "none"
+  Gems:
+    时运宝财礼盒2: 10
+    锋利源泉礼盒2: 10
+    掠夺晶芒礼盒2: 10
+    力量之源礼盒2: 10
+    不朽之星礼盒2: 10
+    守护晶盾礼盒2: 10
+    幽冥晶魂礼盒2: 10
+    节肢晶影礼盒2: 10
+    海澜晶魄礼盒2: 10
+    生命晶华礼盒2: 10
+    灵速晶心礼盒2: 10
+    荆棘之刺礼盒2: 10
+

@@ -1,0 +1,29 @@
+# 作用于宝石概率的宝石
+
+内置-倍率增加宝石:
+  Name: 倍率增加宝石
+  Display: "&8&l&k||&6&l倍率增加宝石&8&l&k||"
+  Success: 100
+  Tips:
+    - "&7在工作台内对着目标物品宝石右键"
+    - "&7可以在原有成功概率基础上，额外增加 1% 的成功率"
+    - "&7计算公式: 概率=原有成功机率+1%"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjkwMWYwNzg1ZDIyMmU5YWZhNTA1NmNkZGFmZGI3YTMzYTRhYTljODllOTEyZWU3MWYzM2I2ZDc2MzEwNTRkIn19fQ==
+  SuccessTip: "&a您使用了&6&l倍率增加宝石&a, 目标宝石成功概率额外&6&l+1%"
+  Rewards:
+    # limit 额外增加成功机率的上线
+    - GemSuccess{add=1;limit=30} $onSuccess
+
+内置-倍率倍增宝石:
+  Name: 倍率倍增宝石
+  Display: "&8&l&k||&6&l倍率倍增宝石&8&l&k||"
+  Success: 100
+  Tips:
+    - "&7在工作台内对着目标物品宝石右键"
+    - "&7可以在原有成功概率基础上，额外倍增 1% 的成功率"
+    - "&7计算公式: 概率=原有成功机率*1.01"
+  Texture: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjkwMWYwNzg1ZDIyMmU5YWZhNTA1NmNkZGFmZGI3YTMzYTRhYTljODllOTEyZWU3MWYzM2I2ZDc2MzEwNTRkIn19fQ==
+  SuccessTip: "&a您使用了&6&l倍率倍增宝石&a, 目标宝石成功概率倍增&6&l1%"
+  Rewards:
+    # limit 额外倍增成功机率的上线
+    - GemSuccess{multiple=1;limit=30} $onSuccess
