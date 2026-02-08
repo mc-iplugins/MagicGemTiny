@@ -30,7 +30,7 @@ public class PointReward extends PlayerReward {
         if (amountDouble > 0) {
             PlayerPointsHook.give((int) amountDouble, player);
         } else {
-            PlayerPointsHook.take((int) amountDouble, player);
+            PlayerPointsHook.take(Math.abs((int) amountDouble), player);
         }
     }
 
@@ -41,7 +41,7 @@ public class PointReward extends PlayerReward {
         }
         double amountDouble = amount.getDouble(player, null);
         if (amountDouble < 0) {
-            boolean check = PlayerPointsHook.check((int) amountDouble, player);
+            boolean check = PlayerPointsHook.check(Math.abs((int) amountDouble), player);
             if (!check) {
                 player.sendMessage("§c您没有足够的点券可供消耗");
             }

@@ -30,7 +30,7 @@ public class MoneyReward extends PlayerReward {
         if (amountDouble > 0) {
             VaultHook.give(amountDouble, player);
         } else {
-            VaultHook.take(amountDouble, player);
+            VaultHook.take(Math.abs(amountDouble), player);
         }
     }
 
@@ -41,7 +41,7 @@ public class MoneyReward extends PlayerReward {
         }
         double amountDouble = amount.getDouble(player, null);
         if (amountDouble < 0) {
-            boolean check = VaultHook.check(amountDouble, player);
+            boolean check = VaultHook.check(Math.abs(amountDouble), player);
             if (!check) {
                 player.sendMessage("§c您没有足够的金币可供消耗");
             }
