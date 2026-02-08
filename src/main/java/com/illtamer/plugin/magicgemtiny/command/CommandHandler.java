@@ -1,6 +1,7 @@
 package com.illtamer.plugin.magicgemtiny.command;
 
 import com.illtamer.plugin.magicgemtiny.MagicGemTiny;
+import com.illtamer.plugin.magicgemtiny.entity.NBTKey;
 import com.illtamer.plugin.magicgemtiny.gem.Gem;
 import com.illtamer.plugin.magicgemtiny.util.ItemUtil;
 import de.tr7zw.nbtapi.NBTItem;
@@ -33,6 +34,7 @@ public class CommandHandler implements TabExecutor {
         // /mgem lore 列出主手物品的Lore
         // /mgem material 显示主手物品的名称和子ID
         // /mgem nbt 列出主手中物品的NBT标签和类型
+        // /mgem success 列出主手宝石对副手物品的成功机率
         if (args.length == 1) {
             if (!sender.hasPermission("magicgem.command.admin")) {
                 sender.sendMessage("你缺少权限 magicgem.command.admin");
@@ -42,7 +44,12 @@ public class CommandHandler implements TabExecutor {
             if ("reload".equals(args[0])) {
                 instance.getGemLoader().reload();
                 return true;
-            } else if ("enchant".equals(args[0]) || "lore".equals(args[0]) || "material".equals(args[0]) || "nbt".equals(args[0])) {
+            } else if ("enchant".equals(args[0])
+                    || "lore".equals(args[0])
+                    || "material".equals(args[0])
+                    || "nbt".equals(args[0])
+                    || "success".equals(args[0])
+            ) {
                 if (!(sender instanceof Player player)) {
                     sender.sendMessage("仅玩家可用");
                     return true;
@@ -67,6 +74,37 @@ public class CommandHandler implements TabExecutor {
                 } else if ("material".equals(args[0])) {
                     Material material = item.getType();
                     player.sendMessage("名称: " + material.name() + ", 子ID: 高版本不存在");
+                } else if ("success".equals(args[0])) {
+                    if (!ItemUtil.isGem(item)) {
+                        player.sendMessage("主手物品非宝石");
+                        return true;
+                    }
+                    NBTItem nbtItem = new NBTItem(item);
+                    String gemUniqueKey = nbtItem.getString(NBTKey.MAGICGEM_NAME);
+                    Gem gem = instance.getGemLoader().getGemMap().get(gemUniqueKey);
+                    if (gem == null) {
+                        player.sendMessage("无效的宝石: " + gemUniqueKey);
+                        return true;
+                    }
+
+                    ItemStack offHandItem = player.getInventory().getItemInOffHand();
+                    if (offHandItem.getType() == Material.AIR) {
+                        player.sendMessage("§7检测到副手未持有物品，基础成功率计算表达式部分取默认值");
+                    } else {
+                        player.sendMessage("§7检测到副手持有物品，基础成功率计算以副手物品为基准");
+                    }
+                    double successValue = gem.getSuccess().getDouble(player, offHandItem);
+                    Integer multiple = nbtItem.getInteger(NBTKey.GEM_SUCCESS_MULTIPLE);
+                    Integer add = nbtItem.getInteger(NBTKey.GEM_SUCCESS_ADD);
+                    String oriSuccessStr = String.format("§a基础成功率: %.2f%%; 倍率倍增: %d%%; 倍率增加: %d%%", successValue, multiple, add);
+                    // 先乘后加 相互独立
+                    if (multiple != null) {
+                        successValue = successValue * (1 + multiple / 100.0);
+                    }
+                    if (add != null) {
+                        successValue = successValue + add;
+                    }
+                    player.sendMessage(String.format("%s\n§6总成功率: %.2f%%", oriSuccessStr, successValue));
                 } else { // nbt
                     NBTItem nbtItem = new NBTItem(item);
                     player.sendMessage(nbtItem.asNBTString());
@@ -135,7 +173,7 @@ public class CommandHandler implements TabExecutor {
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         List<String> result = new ArrayList<>();
         if (args.length == 1) {
-            result.addAll(Arrays.asList("reload", "enchant", "lore", "material", "nbt", "give"));
+            result.addAll(Arrays.asList("reload", "enchant", "lore", "material", "nbt", "success", "give"));
         }
         if (args.length == 2) {
             if ("nbt".equals(args[0])) {
@@ -160,6 +198,7 @@ public class CommandHandler implements TabExecutor {
                 "/mgem lore 列出主手物品的Lore",
                 "/mgem material 显示主手物品的名称和子ID",
                 "/mgem nbt 列出主手中物品的NBT标签和类型",
+                "/mgem success 列出主手宝石对副手物品的成功机率",
                 "/mgem nbt <属性名> 读取主手物品的指定属性",
                 "/mgem give <玩家> <宝石名> (数量) 给玩家指定数量的某种宝石(默认1个)"
         ).toArray(new String[0]));

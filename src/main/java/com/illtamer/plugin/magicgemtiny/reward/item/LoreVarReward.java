@@ -46,7 +46,7 @@ public class LoreVarReward extends ItemReward {
 
     @Override
     protected void init() {
-        lore = StringUtil.clearColor(StringUtil.clearColor(getParamString("lore", null)));
+        lore = StringUtil.c(getParamString("lore", null));
         var = getParamString("var", null);
         inv = getParamString("inv", null);
         limit = getParamString("limit", null);
@@ -76,16 +76,16 @@ public class LoreVarReward extends ItemReward {
                     Variable.createVariable("v", pair != null ? pair.getValue() : 0.0))).toString());
 
             if (pair != null) { // 替换逻辑
-                int index = pair.getKey();
-                String oldLore = loreList.get(index);
+                System.out.println("newValue: " + newValue);
+                int loreIndex = pair.getKey();
+                String oldLore = loreList.get(loreIndex);
                 double oldValue = pair.getValue();
-                String newLore = oldLore.replace(String.valueOf(oldValue), String.valueOf(newValue));
-                loreList.set(index, newLore);
+                String newLore = oldLore.replace(String.format(format, oldValue), String.format(format, newValue));
+                loreList.set(loreIndex, newLore);
                 // record
-                record(index, oldValue, oldLore, newValue, newLore, true, record);
+                record(loreIndex, oldValue, oldLore, newValue, newLore, true, record);
             } else if (StringUtil.isNotBlank(mode)) { // 变量名没有找到时，根据locator添加
-                // 处理 C 语言风格格式化，替换 %% 为 %
-                String formatNewValue = String.format(format.replace("%%", "%"), newValue);
+                String formatNewValue = String.format(format, newValue);
                 String newLoreSub = prefix ? (formatNewValue + lore) : (lore + formatNewValue);
                 int insertPos = loreList.size(); // 默认末尾
                 boolean isReplace = false;
@@ -211,7 +211,7 @@ public class LoreVarReward extends ItemReward {
         Pattern numberPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
         for (int i = 0; i < loreList.size(); i++) {
-            String plainLine = StringUtil.clearColor(loreList.get(i));
+            String plainLine = loreList.get(i);
             if (plainLine.contains(lore)) {
                 Matcher m = numberPattern.matcher(plainLine);
                 int count = 0;

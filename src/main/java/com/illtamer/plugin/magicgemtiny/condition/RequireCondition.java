@@ -95,6 +95,7 @@ public class RequireCondition implements Condition {
         List<Material> axeList = Arrays.asList(
             Material.WOODEN_AXE,
             Material.STONE_AXE,
+            Material.COPPER_AXE,
             Material.GOLDEN_AXE,
             Material.IRON_AXE,
             Material.DIAMOND_AXE,
@@ -106,11 +107,12 @@ public class RequireCondition implements Condition {
             Material.LEGACY_DIAMOND_AXE
         );
 
-        // Weapon: 含剑/斧/弓/弩/三叉戟
+        // Weapon: 含剑/斧/矛/弓/弩/三叉戟
         WEAPON.addAll(axeList);
         WEAPON.addAll(Arrays.asList(
                 Material.WOODEN_SWORD,
                 Material.STONE_SWORD,
+                Material.COPPER_SWORD,
                 Material.GOLDEN_SWORD,
                 Material.IRON_SWORD,
                 Material.DIAMOND_SWORD,
@@ -121,6 +123,14 @@ public class RequireCondition implements Condition {
                 Material.LEGACY_IRON_SWORD,
                 Material.LEGACY_DIAMOND_SWORD,
 
+                Material.WOODEN_SPEAR,
+                Material.STONE_SPEAR,
+                Material.COPPER_SPEAR,
+                Material.GOLDEN_SPEAR,
+                Material.IRON_SPEAR,
+                Material.DIAMOND_SPEAR,
+                Material.NETHERITE_SPEAR,
+
                 Material.BOW,
                 Material.CROSSBOW,
                 Material.TRIDENT
@@ -130,6 +140,7 @@ public class RequireCondition implements Condition {
         ARMOR.addAll(Arrays.asList(
             Material.TURTLE_HELMET,
             Material.LEATHER_HELMET,
+            Material.COPPER_HELMET,
             Material.CHAINMAIL_HELMET,
             Material.IRON_HELMET,
             Material.DIAMOND_HELMET,
@@ -142,6 +153,7 @@ public class RequireCondition implements Condition {
             Material.LEGACY_GOLD_HELMET,
 
             Material.LEATHER_CHESTPLATE,
+            Material.COPPER_CHESTPLATE,
             Material.CHAINMAIL_CHESTPLATE,
             Material.IRON_CHESTPLATE,
             Material.DIAMOND_CHESTPLATE,
@@ -154,6 +166,7 @@ public class RequireCondition implements Condition {
             Material.LEGACY_GOLD_CHESTPLATE,
 
             Material.LEATHER_LEGGINGS,
+            Material.COPPER_LEGGINGS,
             Material.CHAINMAIL_LEGGINGS,
             Material.IRON_LEGGINGS,
             Material.DIAMOND_LEGGINGS,
@@ -166,6 +179,7 @@ public class RequireCondition implements Condition {
             Material.LEGACY_GOLD_LEGGINGS,
 
             Material.LEATHER_BOOTS,
+            Material.COPPER_BOOTS,
             Material.CHAINMAIL_BOOTS,
             Material.IRON_BOOTS,
             Material.DIAMOND_BOOTS,
@@ -186,6 +200,7 @@ public class RequireCondition implements Condition {
         TOOL.addAll(Arrays.asList(
             Material.WOODEN_PICKAXE,
             Material.STONE_PICKAXE,
+            Material.COPPER_PICKAXE,
             Material.GOLDEN_PICKAXE,
             Material.IRON_PICKAXE,
             Material.DIAMOND_PICKAXE,
@@ -198,6 +213,7 @@ public class RequireCondition implements Condition {
 
             Material.WOODEN_SHOVEL,
             Material.STONE_SHOVEL,
+            Material.COPPER_SHOVEL,
             Material.GOLDEN_SHOVEL,
             Material.IRON_SHOVEL,
             Material.DIAMOND_SHOVEL,
@@ -205,6 +221,7 @@ public class RequireCondition implements Condition {
 
             Material.WOODEN_HOE,
             Material.STONE_HOE,
+            Material.COPPER_HOE,
             Material.GOLDEN_HOE,
             Material.IRON_HOE,
             Material.DIAMOND_HOE,

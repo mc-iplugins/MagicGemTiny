@@ -1,7 +1,5 @@
 package com.illtamer.plugin.magicgemtiny.util;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.illtamer.plugin.magicgemtiny.condition.RequireCondition;
@@ -49,7 +47,7 @@ public class GemUtil {
             // 记录镶嵌的宝石类型
             logObject.addProperty("Name", itemGem.getName());
             int logLevel = triggerCommonRewardsOnCondition(consumed, itemGem, player, targetItemNBT, logObject);
-            if (logLevel >= 0) {
+            if (logLevel >= 0) { // 成功/失败都记录
                 array.add(logObject);
             }
         });
@@ -104,6 +102,15 @@ public class GemUtil {
         doRewardList(anywayList, player, targetItemNBT, json);
 
         double successValue = gem.getSuccess().getDouble(player, targetItemNBT.getItem());
+        NBTItem consumedNBT = new NBTItem(consumed);
+        // 先乘后加 相互独立
+        if (consumedNBT.hasTag(NBTKey.GEM_SUCCESS_MULTIPLE)) {
+            successValue = successValue * (1 + consumedNBT.getInteger(NBTKey.GEM_SUCCESS_MULTIPLE) / 100.0);
+        }
+        if (consumedNBT.hasTag(NBTKey.GEM_SUCCESS_ADD)) {
+            successValue = successValue + consumedNBT.getInteger(NBTKey.GEM_SUCCESS_ADD);
+        }
+
         // 判断Success
         if (!RandomUtil.success(successValue)) {
             String failTip = StringUtil.isBlank(gem.getFailTip()) ? "物品使用失败" : gem.getFailTip();

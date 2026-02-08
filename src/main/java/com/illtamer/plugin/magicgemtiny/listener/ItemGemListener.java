@@ -17,8 +17,11 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 /**
  * 镶嵌监听
@@ -33,7 +36,7 @@ public class ItemGemListener implements Listener {
         if (!(event.getWhoClicked() instanceof Player player)) {
             return;
         }
-        InventoryType type = event.getInventory().getType();
+        InventoryType type = Optional.ofNullable(event.getClickedInventory()).map(Inventory::getType).orElse(null);;
         if (type != InventoryType.WORKBENCH) {
             return;
         }
