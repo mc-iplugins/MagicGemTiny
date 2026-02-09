@@ -97,42 +97,45 @@ public class GemUtil {
             }
         }
 
-        ItemUtil.consume(consumed);
-        // 无论怎样都会执行的奖励
-        doRewardList(anywayList, player, targetItemNBT, json);
+        try {
+            // 无论怎样都会执行的奖励
+            doRewardList(anywayList, player, targetItemNBT, json);
 
-        double successValue = gem.getSuccess().getDouble(player, targetItemNBT.getItem());
-        NBTItem consumedNBT = new NBTItem(consumed);
-        // 先乘后加 相互独立
-        if (consumedNBT.hasTag(NBTKey.GEM_SUCCESS_MULTIPLE)) {
-            successValue = successValue * (1 + consumedNBT.getInteger(NBTKey.GEM_SUCCESS_MULTIPLE) / 100.0);
-        }
-        if (consumedNBT.hasTag(NBTKey.GEM_SUCCESS_ADD)) {
-            successValue = successValue + consumedNBT.getInteger(NBTKey.GEM_SUCCESS_ADD);
-        }
+            double successValue = gem.getSuccess().getDouble(player, targetItemNBT.getItem());
+            NBTItem consumedNBT = new NBTItem(consumed);
+            // 先乘后加 相互独立
+            if (consumedNBT.hasTag(NBTKey.GEM_SUCCESS_MULTIPLE)) {
+                successValue = successValue * (1 + consumedNBT.getInteger(NBTKey.GEM_SUCCESS_MULTIPLE) / 100.0);
+            }
+            if (consumedNBT.hasTag(NBTKey.GEM_SUCCESS_ADD)) {
+                successValue = successValue + consumedNBT.getInteger(NBTKey.GEM_SUCCESS_ADD);
+            }
 
-        // 判断Success
-        if (!RandomUtil.success(successValue)) {
-            String failTip = StringUtil.isBlank(gem.getFailTip()) ? "物品使用失败" : gem.getFailTip();
-            player.sendMessage(StringUtil.c(failTip));
+            // 判断Success
+            if (!RandomUtil.success(successValue)) {
+                String failTip = StringUtil.isBlank(gem.getFailTip()) ? "物品使用失败" : gem.getFailTip();
+                player.sendMessage(StringUtil.c(failTip));
 
-            if (gem instanceof ItemGem itemGem) {
-                // 判断降级
-                double downgradeValue = itemGem.getDowngrade().getDouble(player, targetItemNBT.getItem());
-                if (RandomUtil.success(downgradeValue)) {
-                    for (Reward reward : rewardList) {
-                        if (reward instanceof ItemReward itemReward) {
-                            itemReward.downgrade(targetItemNBT, player, json);
+                if (gem instanceof ItemGem itemGem) {
+                    // 判断降级
+                    double downgradeValue = itemGem.getDowngrade().getDouble(player, targetItemNBT.getItem());
+                    if (RandomUtil.success(downgradeValue)) {
+                        for (Reward reward : rewardList) {
+                            if (reward instanceof ItemReward itemReward) {
+                                itemReward.downgrade(targetItemNBT, player, json);
+                            }
+                        }
+                        if (StringUtil.isNotBlank(itemGem.getDowngradeTip())) {
+                            player.sendMessage(StringUtil.c(itemGem.getDowngradeTip()));
                         }
                     }
-                    if (StringUtil.isNotBlank(itemGem.getDowngradeTip())) {
-                        player.sendMessage(StringUtil.c(itemGem.getDowngradeTip()));
-                    }
                 }
+                // 触发失败奖励
+                doRewardList(onFailList, player, targetItemNBT, json);
+                return 0;
             }
-            // 触发失败奖励
-            doRewardList(onFailList, player, targetItemNBT, json);
-            return 0;
+        } finally { // 最后消耗宝石（因为要用到宝石nbt
+            ItemUtil.consume(consumed);
         }
 
         if (StringUtil.isNotBlank(gem.getSuccessTip())) {
