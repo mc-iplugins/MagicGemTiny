@@ -35,6 +35,48 @@ public class CommandHandler implements TabExecutor {
         // /mgem material 显示主手物品的名称和子ID
         // /mgem nbt 列出主手中物品的NBT标签和类型
         // /mgem success 列出主手宝石对副手物品的成功机率
+        if (args.length == 1 && "success".equals(args[0])) {
+            if (!(sender instanceof Player player)) {
+                sender.sendMessage("仅玩家可用");
+                return true;
+            }
+            ItemStack item = player.getInventory().getItemInMainHand();
+            if (item.getType().isAir()) {
+                player.sendMessage("手上物品不能为空");
+                return true;
+            }
+            if (!ItemUtil.isGem(item)) {
+                player.sendMessage("主手物品非宝石");
+                return true;
+            }
+            NBTItem nbtItem = new NBTItem(item);
+            String gemUniqueKey = nbtItem.getString(NBTKey.MAGICGEM_NAME);
+            Gem gem = instance.getGemLoader().getGemMap().get(gemUniqueKey);
+            if (gem == null) {
+                player.sendMessage("无效的宝石: " + gemUniqueKey);
+                return true;
+            }
+
+            ItemStack offHandItem = player.getInventory().getItemInOffHand();
+            if (offHandItem.getType() == Material.AIR) {
+                player.sendMessage("§7检测到副手未持有物品，基础成功率计算表达式部分取默认值");
+            } else {
+                player.sendMessage("§7检测到副手持有物品，基础成功率计算以副手物品为基准");
+            }
+            double successValue = gem.getSuccess().getDouble(player, offHandItem);
+            Integer multiple = nbtItem.getInteger(NBTKey.GEM_SUCCESS_MULTIPLE);
+            Integer add = nbtItem.getInteger(NBTKey.GEM_SUCCESS_ADD);
+            String oriSuccessStr = String.format("§a基础成功率: %.2f%%; 倍率倍增: %d%%; 倍率增加: %d%%", successValue, multiple, add);
+            // 先乘后加 相互独立
+            if (multiple != null) {
+                successValue = successValue * (1 + multiple / 100.0);
+            }
+            if (add != null) {
+                successValue = successValue + add;
+            }
+            player.sendMessage(String.format("%s\n§6总成功率: %.2f%%", oriSuccessStr, successValue));
+        }
+
         if (args.length == 1) {
             if (!sender.hasPermission("magicgem.command.admin")) {
                 sender.sendMessage("你缺少权限 magicgem.command.admin");
@@ -48,7 +90,6 @@ public class CommandHandler implements TabExecutor {
                     || "lore".equals(args[0])
                     || "material".equals(args[0])
                     || "nbt".equals(args[0])
-                    || "success".equals(args[0])
             ) {
                 if (!(sender instanceof Player player)) {
                     sender.sendMessage("仅玩家可用");
@@ -74,37 +115,6 @@ public class CommandHandler implements TabExecutor {
                 } else if ("material".equals(args[0])) {
                     Material material = item.getType();
                     player.sendMessage("名称: " + material.name() + ", 子ID: 高版本不存在");
-                } else if ("success".equals(args[0])) {
-                    if (!ItemUtil.isGem(item)) {
-                        player.sendMessage("主手物品非宝石");
-                        return true;
-                    }
-                    NBTItem nbtItem = new NBTItem(item);
-                    String gemUniqueKey = nbtItem.getString(NBTKey.MAGICGEM_NAME);
-                    Gem gem = instance.getGemLoader().getGemMap().get(gemUniqueKey);
-                    if (gem == null) {
-                        player.sendMessage("无效的宝石: " + gemUniqueKey);
-                        return true;
-                    }
-
-                    ItemStack offHandItem = player.getInventory().getItemInOffHand();
-                    if (offHandItem.getType() == Material.AIR) {
-                        player.sendMessage("§7检测到副手未持有物品，基础成功率计算表达式部分取默认值");
-                    } else {
-                        player.sendMessage("§7检测到副手持有物品，基础成功率计算以副手物品为基准");
-                    }
-                    double successValue = gem.getSuccess().getDouble(player, offHandItem);
-                    Integer multiple = nbtItem.getInteger(NBTKey.GEM_SUCCESS_MULTIPLE);
-                    Integer add = nbtItem.getInteger(NBTKey.GEM_SUCCESS_ADD);
-                    String oriSuccessStr = String.format("§a基础成功率: %.2f%%; 倍率倍增: %d%%; 倍率增加: %d%%", successValue, multiple, add);
-                    // 先乘后加 相互独立
-                    if (multiple != null) {
-                        successValue = successValue * (1 + multiple / 100.0);
-                    }
-                    if (add != null) {
-                        successValue = successValue + add;
-                    }
-                    player.sendMessage(String.format("%s\n§6总成功率: %.2f%%", oriSuccessStr, successValue));
                 } else { // nbt
                     NBTItem nbtItem = new NBTItem(item);
                     player.sendMessage(nbtItem.asNBTString());
