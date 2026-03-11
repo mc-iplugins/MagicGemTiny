@@ -18,6 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class GemUtil {
 
@@ -54,7 +55,7 @@ public class GemUtil {
     }
 
     /**
-     * 触发玩家/物品宝石奖励
+     * 触发玩家宝石奖励
      * @param playerGem 玩家宝石
      * @apiNote 不满足条件(Require, Reward#test) 不触发宝石效果也不消耗宝石
      * */
@@ -100,8 +101,8 @@ public class GemUtil {
         try {
             // 无论怎样都会执行的奖励
             doRewardList(anywayList, player, targetItemNBT, json);
-
-            double successValue = gem.getSuccess().getDouble(player, targetItemNBT.getItem());
+            // 为空是玩家宝石 一定执行
+            double successValue = Optional.ofNullable(targetItemNBT).map(e -> gem.getSuccess().getDouble(player, e.getItem())).orElse(100D);
             NBTItem consumedNBT = new NBTItem(consumed);
             // 先乘后加 相互独立
             if (consumedNBT.hasTag(NBTKey.GEM_SUCCESS_MULTIPLE)) {
