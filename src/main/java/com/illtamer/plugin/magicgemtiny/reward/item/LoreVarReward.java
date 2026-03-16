@@ -1,6 +1,5 @@
 package com.illtamer.plugin.magicgemtiny.reward.item;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.illtamer.lib.Pair;
 import com.illtamer.plugin.magicgemtiny.exception.ConditionException;
@@ -64,7 +63,7 @@ public class LoreVarReward extends ItemReward {
         ItemStack item = nbtItem.getItem();
         ItemMeta meta = item.getItemMeta();
 
-        List<String> loreList = new ArrayList<>(meta.getLore());
+        List<String> loreList = meta.hasLore() ? new ArrayList<>(meta.getLore()) : new ArrayList<>();
         JsonObject record = new JsonObject();
 
         // 查找是否存在现有的变量名 Pair<lore所在索引, oldValue>
@@ -156,10 +155,10 @@ public class LoreVarReward extends ItemReward {
     @Override
     protected boolean tryTest(NBTItem nbtItem) throws ConditionException {
         ItemMeta meta = nbtItem.getItem().getItemMeta();
-        if (meta == null || !meta.hasLore() || meta.getLore().isEmpty()) {
+        if (meta == null) {
             throw new ConditionException("该物品不支持编辑Lore");
         }
-        List<String> loreList = meta.getLore();
+        List<String> loreList = meta.hasLore() ? meta.getLore() : new ArrayList<>();
         if (StringUtil.isBlank(lore)) {
             throw new ConditionException("要修改的lore不能为空");
         }
@@ -193,7 +192,7 @@ public class LoreVarReward extends ItemReward {
         }
 
         // 判断装备属性是否达上限
-        return StringUtil.isNotBlank(limit) && checkLimit(pair != null ? pair.getValue() : 0.0);
+        return StringUtil.isBlank(limit) || (StringUtil.isNotBlank(limit) && checkLimit(pair != null ? pair.getValue() : 0.0));
     }
 
     @Override
