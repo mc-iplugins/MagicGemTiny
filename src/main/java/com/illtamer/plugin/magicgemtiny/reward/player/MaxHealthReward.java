@@ -1,6 +1,8 @@
 package com.illtamer.plugin.magicgemtiny.reward.player;
 
 import com.illtamer.plugin.magicgemtiny.reward.PlayerReward;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Player;
 
 /**
@@ -15,11 +17,11 @@ public class MaxHealthReward extends PlayerReward {
         Integer limit = getParamInteger("limit", player);
         limit = limit == null ? Integer.MAX_VALUE : limit;
 
-//        AttributeInstance attribute = player.getAttribute(Attribute.MAX_HEALTH);
-        double newMaxHealth = Math.min(amount+player.getMaxHealth(), limit);
-
-        if (newMaxHealth != player.getMaxHealth()) {
-            player.setMaxHealth(newMaxHealth);
+        AttributeInstance attribute = player.getAttribute(Attribute.MAX_HEALTH);
+        double baseValue = attribute.getBaseValue();
+        double newBaseValue = Math.min(baseValue + amount, limit);
+        if (newBaseValue != baseValue) {
+            attribute.setBaseValue(newBaseValue);
         }
     }
 
