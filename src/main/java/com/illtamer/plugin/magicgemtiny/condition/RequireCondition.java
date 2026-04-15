@@ -1,6 +1,7 @@
 package com.illtamer.plugin.magicgemtiny.condition;
 
 import com.illtamer.plugin.magicgemtiny.MagicGemTiny;
+import com.illtamer.plugin.magicgemtiny.util.StringUtil;
 import de.tr7zw.nbtapi.NBTItem;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Material;
@@ -57,37 +58,38 @@ public class RequireCondition implements Condition {
         } else if ("TOOL".equalsIgnoreCase(require)) {
             return TOOL.contains(material);
         }
-        if (!require.contains(":")) {
-            return material.name().endsWith(require.toUpperCase(Locale.ROOT));
-        }
-        ItemMeta meta = item.getItemMeta();
-        if (meta == null) {
-            return false;
-        }
-        // 特殊识别：支持显示名/Lore/NBT/NBT字符串/宝石识别。格式为关键词+冒号+识别内容
-        String[] splits = require.split(":");
-        String key = splits[0];
-        String value1 = splits[1];
-        if ("NAME".equalsIgnoreCase(key)) {
-            return meta.getDisplayName().contains(value1);
-        } else if ("LORE".equalsIgnoreCase(key)) {
-            return Optional.ofNullable(meta.getLore()).orElse(Collections.emptyList()).stream()
-                    .anyMatch(l -> l.contains(value1));
-        } else if ("NBT".equalsIgnoreCase(key)) {
-            NBTItem nbtItem = new NBTItem(item);
-            if (splits.length == 2) { // NBT:要检测存在的NBT名称
-                return nbtItem.hasTag(value1);
-            } else { // NBT:要检测的NBT名称:要检测的NBT内容
-                String value2 = splits[2];
-                return Objects.equals(nbtItem.getString(value1), value2);
-            }
-        } else if ("GEM".equalsIgnoreCase(key)) {
-            NBTItem nbtItem = new NBTItem(item);
-            String magicgemName = nbtItem.getString("MAGICGEM_NAME");
-            return Objects.equals(magicgemName, value1);
-        } else {
-            logger.warning("不识别的特殊识别 Require: " + require);
-            return false;
+
+        String[] splits = require.split(":", 2); // 限制分割次数，防止内容里自带冒号
+        String key = splits[0].toUpperCase(Locale.ROOT);
+        String value = splits.length > 1 ? splits[1] : null;
+
+        switch (key) {
+            case "NAME":
+                return value != null && item.hasItemMeta() && item.getItemMeta().getDisplayName().contains(value);
+            case "LORE":
+                return value != null && Optional.ofNullable(item.getItemMeta()).map(ItemMeta::getLore)
+                        .orElse(Collections.emptyList()).stream().anyMatch(l -> l.contains(value));
+            case "NBT":
+                NBTItem nbtItem = new NBTItem(item);
+                if (splits.length == 2) { // NBT:要检测存在的NBT名称
+                    return nbtItem.hasTag(value);
+                } else { // NBT:要检测的NBT名称:要检测的NBT内容
+                    String value2 = splits[2];
+                    return Objects.equals(nbtItem.getString(value), value2);
+                }
+            case "GEM":
+                String gemName = new NBTItem(item).getString("MAGICGEM_NAME");
+                if (value == null) {
+                    return StringUtil.isNotBlank(gemName);
+                }
+                return Objects.equals(gemName, value);
+            default:
+                // 不含冒号且不是预设关键词，匹配材质名后缀
+                if (!require.contains(":")) {
+                    return material.name().endsWith(require.toUpperCase(Locale.ROOT));
+                }
+                logger.warning("不识别的特殊识别 Require: " + require);
+                return false;
         }
     }
 
