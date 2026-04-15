@@ -132,6 +132,8 @@ public class ItemUtil {
         return color;
     }
 
+    private static final UUID HEAD_UUID = UUID.fromString("00000000-0000-0000-0000-000765743073");
+
     /**
      * 根据Base64编码的纹理生成自定义头颅物品
      * @param base64Texture Base64编码的纹理字符串，例如你提供的那个
@@ -148,7 +150,7 @@ public class ItemUtil {
             return head;
         }
 
-        PlayerProfile profile = Bukkit.createPlayerProfile(UUID.randomUUID(), "CustomHead");
+        PlayerProfile profile = Bukkit.createPlayerProfile(HEAD_UUID, "CustomHead");
         PlayerTextures textures = profile.getTextures();
         URL url = extractSkinUrlFromBase64(base64Texture);
         if (url == null) {
