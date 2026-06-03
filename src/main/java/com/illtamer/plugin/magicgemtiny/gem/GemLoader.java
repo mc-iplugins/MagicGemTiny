@@ -147,6 +147,7 @@ public class GemLoader {
                 itemGem.setDowngradeTip(section.getString("DowngradeTip"));
                 itemGem.setRemoveTip(section.getString("RemoveTip"));
                 itemGem.setBreakTip(section.getString("BreakTip"));
+                itemGem.setRemoveAble(section.getBoolean("RemoveAble", false));
                 gemMap.put(gemUniqueName, itemGem);
                 checkSupportKeys(gem = itemGem, section.getKeys(false));
             }

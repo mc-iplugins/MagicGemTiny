@@ -17,6 +17,7 @@ public abstract class ItemReward extends Reward implements ItemCondition {
 
     /**
      * 降级操作
+     * @apiNote 降级始终不支持拆卸
      * */
     public void downgrade(NBTItem nbtItem, Player player, JsonObject json) {}
 

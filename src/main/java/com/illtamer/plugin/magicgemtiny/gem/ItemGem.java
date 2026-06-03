@@ -53,6 +53,9 @@ public class ItemGem extends Gem {
     private @Nullable String removeTip;
     // 拆卸时宝石破碎的提示信息
     private @Nullable String breakTip;
+    // 当前物品宝石是否可拆卸
+    // 当且仅当该属性为 true 时宝石日志会被记录，同时支持拆卸
+    private boolean removeAble;
 
     public ItemGem(
             String name,

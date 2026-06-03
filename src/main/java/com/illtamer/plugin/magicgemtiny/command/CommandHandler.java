@@ -1,5 +1,6 @@
 package com.illtamer.plugin.magicgemtiny.command;
 
+import com.google.gson.JsonElement;
 import com.illtamer.plugin.magicgemtiny.MagicGemTiny;
 import com.illtamer.plugin.magicgemtiny.entity.NBTKey;
 import com.illtamer.plugin.magicgemtiny.gem.Gem;
@@ -16,9 +17,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class CommandHandler implements TabExecutor {
@@ -35,6 +34,7 @@ public class CommandHandler implements TabExecutor {
         // /mgem material 显示主手物品的名称和子ID
         // /mgem nbt 列出主手中物品的NBT标签和类型
         // /mgem success 列出主手宝石对副手物品的成功机率
+        // /mgem clearChangeLogValue 清除所有宝石使用记录nbt
         if (args.length == 1 && "success".equals(args[0])) {
             if (!(sender instanceof Player player)) {
                 sender.sendMessage("仅玩家可用");
@@ -90,6 +90,7 @@ public class CommandHandler implements TabExecutor {
                     || "lore".equals(args[0])
                     || "material".equals(args[0])
                     || "nbt".equals(args[0])
+                    || "clearChangeLogValue".equals(args[0])
             ) {
                 if (!(sender instanceof Player player)) {
                     sender.sendMessage("仅玩家可用");
@@ -115,9 +116,19 @@ public class CommandHandler implements TabExecutor {
                 } else if ("material".equals(args[0])) {
                     Material material = item.getType();
                     player.sendMessage("名称: " + material.name() + ", 子ID: 高版本不存在");
-                } else { // nbt
+                } else if ("nbt".equals(args[0])) {
                     NBTItem nbtItem = new NBTItem(item);
                     player.sendMessage(nbtItem.asNBTString());
+                } else if ("clearChangeLogValue".equals(args[0])) {
+                    NBTItem nbtItem = new NBTItem(item);
+                    ItemUtil.computeJsonArray(nbtItem, NBTKey.MAGICGEM_CHANGE_LOG, array -> {
+                        array.asList().stream().map(JsonElement::getAsJsonObject).forEach(e ->
+                                e.entrySet().removeIf(entry -> !"Name".equals(entry.getKey())));
+                    });
+                    player.getInventory().setItemInMainHand(nbtItem.getItem());
+                    ItemUtil.computeJsonArray(nbtItem, NBTKey.MAGICGEM_CHANGE_LOG, array -> {
+                        player.sendMessage("清除changeLog成功，当前MAGICGEM_CHANGE_LOG:" + array.toString());
+                    });
                 }
                 return true;
             }
@@ -183,7 +194,7 @@ public class CommandHandler implements TabExecutor {
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         List<String> result = new ArrayList<>();
         if (args.length == 1) {
-            result.addAll(Arrays.asList("reload", "enchant", "lore", "material", "nbt", "success", "give"));
+            result.addAll(Arrays.asList("reload", "enchant", "lore", "material", "nbt", "success", "give", "clearChangeLogValue"));
         }
         if (args.length == 2) {
             if ("nbt".equals(args[0])) {

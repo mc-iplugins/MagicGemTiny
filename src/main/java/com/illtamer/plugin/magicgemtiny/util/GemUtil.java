@@ -47,7 +47,12 @@ public class GemUtil {
             JsonObject logObject = new JsonObject();
             // 记录镶嵌的宝石类型
             logObject.addProperty("Name", itemGem.getName());
-            int logLevel = triggerCommonRewardsOnCondition(consumed, itemGem, player, targetItemNBT, logObject);
+            int logLevel;
+            if (itemGem.isRemoveAble()) {
+                logLevel = triggerCommonRewardsOnCondition(consumed, itemGem, player, targetItemNBT, logObject);
+            } else { // 如果不可拆卸，不记录日志，只记录宝石类型
+                logLevel = triggerCommonRewardsOnCondition(consumed, itemGem, player, targetItemNBT, new JsonObject());
+            }
             if (logLevel >= 0) { // 成功/失败都记录
                 array.add(logObject);
             }
