@@ -30,10 +30,13 @@ public class ItemUtil {
         String changeLog = nbt.getString(key);
         JsonArray array = StringUtil.isNotBlank(changeLog) ?
                 new Gson().fromJson(changeLog, JsonArray.class) : new JsonArray();
+        if (array == null) {
+            array = new JsonArray();
+        }
         if (consumer != null) {
             consumer.accept(array);
+            nbt.setString(key, array.toString());
         }
-        nbt.setString(key, array.toString());
         return array;
     }
 
