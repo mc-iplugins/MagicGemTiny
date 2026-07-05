@@ -23,6 +23,10 @@
               <pattern>com.illtamer.lib</pattern>
               <shadedPattern>com.illtamer.plugin.magicgemtiny.libs.lib</shadedPattern>
             </relocation>
+            <relocation>
+              <pattern>de.themoep.inventorygui</pattern>
+              <shadedPattern>com.illtamer.plugin.magicgemtiny.libs.inventorygui</shadedPattern>
+            </relocation>
           </relocations>
         </configuration>
       </plugin>
