@@ -76,7 +76,7 @@ public class ItemGem extends Gem {
     public static Set<String> supportKeys() {
         Set<String> supportKeys = Gem.supportKeys();
         supportKeys.addAll(Arrays.asList(
-                "Downgrade", "Break", "Embed", "Require", "RemoveTip", "DowngradeTip", "BreakTip"
+                "Downgrade", "Break", "Embed", "Require", "RemoveTip", "DowngradeTip", "BreakTip", "RemoveAble"
         ));
         return supportKeys;
     }

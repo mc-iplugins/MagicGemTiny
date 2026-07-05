@@ -28,6 +28,9 @@ permissions:
   magicgem.command.view:
     description: View gem list
     default: op
+  magicgem.command.disassemble:
+    description: Open gem disassemble GUI
+    default: true
 #  magicgem.command.embed:
 #    description: Open embed GUI by command
 #    default: op

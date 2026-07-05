@@ -180,8 +180,10 @@ public class DisassembleGui {
         gemGroup.clearElements();
         ItemStack equip = equipStorage.getItem(0);
         List<GemUtil.RemovableRecord> records = GemUtil.collectRemovableRecords(equip);
-        for (GemUtil.RemovableRecord record : records) {
-            gemGroup.addElement(buildGemIcon(record));
+        // changelog 按镶嵌时间正序追加；拆卸还原同一位置/同一属性的修改时应后镶嵌先拆卸。
+        // GUI 以最新记录优先展示，避免玩家优先点到旧记录导致防污染校验失败。
+        for (int i = records.size() - 1; i >= 0; i--) {
+            gemGroup.addElement(buildGemIcon(records.get(i)));
         }
         // 展示区为空时的占位提示
         if (records.isEmpty()) {

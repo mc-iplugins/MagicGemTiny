@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.illtamer.plugin.magicgemtiny.MagicGemTiny;
 import com.illtamer.plugin.magicgemtiny.entity.NBTKey;
 import com.illtamer.plugin.magicgemtiny.gem.Gem;
+import com.illtamer.plugin.magicgemtiny.gui.DisassembleGui;
 import com.illtamer.plugin.magicgemtiny.util.ItemUtil;
 import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.Bukkit;
@@ -77,6 +78,19 @@ public class CommandHandler implements TabExecutor {
             player.sendMessage(String.format("%s\n§6总成功率: %.2f%%", oriSuccessStr, successValue));
         }
 
+        if (args.length == 1 && "disassemble".equals(args[0])) {
+            if (!(sender instanceof Player player)) {
+                sender.sendMessage("仅玩家可用");
+                return true;
+            }
+            if (!player.hasPermission("magicgem.command.disassemble")) {
+                player.sendMessage("你缺少权限 magicgem.command.disassemble");
+                return true;
+            }
+            DisassembleGui.open(player);
+            return true;
+        }
+
         if (args.length == 1) {
             if (!sender.hasPermission("magicgem.command.admin")) {
                 sender.sendMessage("你缺少权限 magicgem.command.admin");
@@ -85,6 +99,9 @@ public class CommandHandler implements TabExecutor {
 
             if ("reload".equals(args[0])) {
                 instance.getGemLoader().reload();
+                if (instance.getDisassembleGuiConfig() != null) {
+                    instance.getDisassembleGuiConfig().reload();
+                }
                 return true;
             } else if ("enchant".equals(args[0])
                     || "lore".equals(args[0])
@@ -194,7 +211,7 @@ public class CommandHandler implements TabExecutor {
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         List<String> result = new ArrayList<>();
         if (args.length == 1) {
-            result.addAll(Arrays.asList("reload", "enchant", "lore", "material", "nbt", "success", "give", "clearChangeLogValue"));
+            result.addAll(Arrays.asList("reload", "enchant", "lore", "material", "nbt", "success", "give", "disassemble", "clearChangeLogValue"));
         }
         if (args.length == 2) {
             if ("nbt".equals(args[0])) {
@@ -215,6 +232,7 @@ public class CommandHandler implements TabExecutor {
     private boolean showHelp(CommandSender sender) {
         sender.sendMessage(Arrays.asList(
                 "/mgem reload 重载配置文件",
+                "/mgem disassemble 打开宝石拆卸台",
                 "/mgem enchant 列出主手物品的附魔(包括其它插件附魔)",
                 "/mgem lore 列出主手物品的Lore",
                 "/mgem material 显示主手物品的名称和子ID",
