@@ -78,6 +78,32 @@ public class AttributeReward extends ItemReward {
 
     // 拆卸根据inv表达式实现
 
+    /**
+     * 拆卸还原：用 inv 逆表达式回滚属性
+     * @return 是否可安全提交拆卸。inv/属性/操作配置缺失或物品不支持元数据时返回 false
+     * @apiNote 与 execute 中的 var 对称，读取当前属性值代入 inv 计算还原值。
+     *      多颗属性宝石叠加时, 仅当各宝石使用相同线性表达式才严格守恒(设计约束)。
+     * */
+    @Override
+    public boolean restore(NBTItem nbtItem, Player player, JsonObject log) {
+        if (StringUtil.isBlank(inv) || name == null || operation == null) {
+            return false;
+        }
+        ItemStack item = nbtItem.getItem();
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            return false;
+        }
+        EquipmentSlot modifySlot = slot;
+        if (autoSlot) {
+            modifySlot = item.getType().getEquipmentSlot();
+        }
+        ItemUtil.modifyAttribute(meta, name, "AttributeReward", operation, modifySlot, oldAmount ->
+                (Double) ExpressionEvaluator.preparedCompile(inv, Collections.singleton(Variable.createVariable("v", oldAmount))).execute());
+        item.setItemMeta(meta);
+        return true;
+    }
+
     @Override
     protected boolean tryTest(NBTItem nbtItem) throws ConditionException {
         ItemMeta meta = nbtItem.getItem().getItemMeta();

@@ -70,4 +70,22 @@ public class NBTDoubleReward extends ItemReward {
     public boolean disassemble() {
         return StringUtil.isNotBlank(inv);
     }
+
+    /**
+     * 拆卸还原：用 inv 逆表达式回滚 NBT 浮点数
+     * @return 是否可安全提交拆卸。inv/字段名缺失时返回 false
+     * @apiNote 与 execute 中的 var 对称，读取当前值代入 inv 计算还原值。
+     *      多颗宝石叠加时, 仅当各宝石使用相同线性表达式才严格守恒(设计约束)。
+     * */
+    @Override
+    public boolean restore(NBTItem nbtItem, Player player, JsonObject log) {
+        if (StringUtil.isBlank(inv) || StringUtil.isBlank(name)) {
+            return false;
+        }
+        Double current = nbtItem.getDouble(name);
+        Double restored = (Double) ExpressionEvaluator.preparedCompile(inv, Collections.singleton(
+                Variable.createVariable("v", current))).execute();
+        nbtItem.setDouble(name, restored);
+        return true;
+    }
 }

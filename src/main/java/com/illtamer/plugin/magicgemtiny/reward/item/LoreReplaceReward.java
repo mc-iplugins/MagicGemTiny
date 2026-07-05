@@ -1,6 +1,7 @@
 package com.illtamer.plugin.magicgemtiny.reward.item;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.illtamer.plugin.magicgemtiny.exception.ConditionException;
 import com.illtamer.plugin.magicgemtiny.reward.ItemReward;
@@ -40,7 +41,7 @@ public class LoreReplaceReward extends ItemReward {
         }
         locator = StringUtil.clearColor(getParamString("locator", null));
         limit = getParamInteger("limit", null);
-        limit = limit == null || limit <= 0 ? Integer.MAX_VALUE : limit;
+        limit = limit == null || limit <= 0 ? 1 : limit;
     }
 
     @Override
@@ -150,6 +151,58 @@ public class LoreReplaceReward extends ItemReward {
 
     @Override
     public boolean disassemble() {
+        return true;
+    }
+
+    /**
+     * 拆卸还原：逆序遍历记录，将被替换的行设回原始 lore
+     * @return 是否可安全提交拆卸。若存在无法还原(当前行已非替换后的值)的条目则返回 false，
+     *      阻止拆卸以防止装备被篡改/多颗宝石叠加时的刷取
+     * @apiNote 仅当目标行当前内容仍等于替换后的值时才还原
+     * */
+    @Override
+    public boolean restore(NBTItem nbtItem, Player player, JsonObject log) {
+        JsonElement element = log.get("LoreReplace");
+        if (element == null || !element.isJsonArray()) {
+            return true; // 本奖励未产生记录, 无需还原
+        }
+        JsonArray history = element.getAsJsonArray();
+        ItemStack item = nbtItem.getItem();
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            return false;
+        }
+        List<String> loreList = meta.hasLore() ? new ArrayList<>(meta.getLore()) : new ArrayList<>();
+
+        boolean allRestored = true;
+        // 逆序还原，与镶嵌时的正序替换对称
+        for (int i = history.size() - 1; i >= 0; i--) {
+            JsonElement changeEle = history.get(i);
+            if (!changeEle.isJsonObject()) {
+                continue;
+            }
+            JsonObject change = changeEle.getAsJsonObject();
+            if (!change.has("index") || change.get("index").isJsonNull()
+                    || !change.has("before") || change.get("before").isJsonNull()
+                    || !change.has("after") || change.get("after").isJsonNull()) {
+                continue;
+            }
+            int index = change.get("index").getAsInt();
+            String before = change.get("before").getAsString();
+            String after = change.get("after").getAsString();
+            // 仅当当前行仍是替换后的值才还原; 否则视为无法还原(已被覆盖/篡改)
+            if (index >= 0 && index < loreList.size() && loreList.get(index).equals(after)) {
+                loreList.set(index, before);
+            } else {
+                allRestored = false;
+            }
+        }
+
+        if (!allRestored) {
+            return false; // 存在无法还原的条目, 中止拆卸
+        }
+        meta.setLore(loreList);
+        item.setItemMeta(meta);
         return true;
     }
 

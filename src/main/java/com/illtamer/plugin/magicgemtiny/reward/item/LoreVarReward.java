@@ -1,5 +1,6 @@
 package com.illtamer.plugin.magicgemtiny.reward.item;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.illtamer.lib.Pair;
 import com.illtamer.plugin.magicgemtiny.exception.ConditionException;
@@ -75,7 +76,6 @@ public class LoreVarReward extends ItemReward {
                     Variable.createVariable("v", pair != null ? pair.getValue() : 0.0))).toString());
 
             if (pair != null) { // 替换逻辑
-                System.out.println("newValue: " + newValue);
                 int loreIndex = pair.getKey();
                 String oldLore = loreList.get(loreIndex);
                 double oldValue = pair.getValue();
@@ -197,6 +197,52 @@ public class LoreVarReward extends ItemReward {
 
     @Override
     public boolean disassemble() {
+        return true;
+    }
+
+    /**
+     * 拆卸还原
+     * @return 是否可安全提交拆卸。目标行已非强化后的值(被篡改/覆盖)时返回 false 以中止拆卸
+     * @apiNote replace=true 将该行设回 oldLore；replace=false（新增模式）移除新增的 newLore 行
+     * */
+    @Override
+    public boolean restore(NBTItem nbtItem, Player player, JsonObject log) {
+        JsonElement element = log.get("LoreVar");
+        if (element == null || !element.isJsonObject()) {
+            return true; // 本奖励未产生记录, 无需还原
+        }
+        JsonObject record = element.getAsJsonObject();
+        if (record.size() == 0) { // 镶嵌时未命中任何修改
+            return true;
+        }
+        ItemStack item = nbtItem.getItem();
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            return false;
+        }
+        List<String> loreList = meta.hasLore() ? new ArrayList<>(meta.getLore()) : new ArrayList<>();
+
+        int index = record.has("index") && !record.get("index").isJsonNull() ? record.get("index").getAsInt() : -1;
+        boolean replace = record.has("replace") && !record.get("replace").isJsonNull() && record.get("replace").getAsBoolean();
+        String oldLore = record.has("oldLore") && !record.get("oldLore").isJsonNull() ? record.get("oldLore").getAsString() : null;
+        String newLore = record.has("newLore") && !record.get("newLore").isJsonNull() ? record.get("newLore").getAsString() : null;
+
+        // 目标行越界、或当前已非强化后的值, 视为无法还原
+        if (index < 0 || index >= loreList.size() || newLore == null || !loreList.get(index).equals(newLore)) {
+            return false;
+        }
+        if (replace) {
+            if (oldLore != null) {
+                loreList.set(index, oldLore);
+            } else {
+                return false; // 记录缺少原始值, 无法还原
+            }
+        } else { // 新增模式，移除该行
+            loreList.remove(index);
+        }
+
+        meta.setLore(loreList);
+        item.setItemMeta(meta);
         return true;
     }
 
