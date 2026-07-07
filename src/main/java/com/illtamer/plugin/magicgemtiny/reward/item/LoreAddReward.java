@@ -47,50 +47,53 @@ public class LoreAddReward extends ItemReward {
         }
     }
 
+    // 无需支持拆卸
     @Override
     public void execute(NBTItem nbtItem, Player player, JsonObject json) {
         String withdraw = "delete";
-        int index = 0;
+        Integer index = null;
         String oldLore = null;
-        try {
-            ItemStack item = nbtItem.getItem();
-            ItemMeta meta = item.getItemMeta();
-            List<String> loreList = meta.hasLore() ? meta.getLore() : new ArrayList<>();
 
-            if (mode.equals("first")) {
-                loreList.add(0, lore);
-            } else if (mode.equals("last")) {
-                index = loreList.size();
-                loreList.add(lore);
-            } else {
-                for (int i = 0; i < loreList.size(); i++) {
-                    if (StringUtil.clearColor(loreList.get(i)).contains(locator)) {
-                        index = i;
-                    }
-                }
-                if ("before".equals(mode)) {
-                    loreList.add(index, lore);
-                } else if ("after".equals(mode)) {
-                    loreList.add(index+1, lore);
-                } else { // line
-                    oldLore = loreList.get(index);
-                    loreList.set(index, oldLore + lore);
-                    withdraw = "replace";
+        ItemStack item = nbtItem.getItem();
+        ItemMeta meta = item.getItemMeta();
+        List<String> loreList = meta.hasLore() ? meta.getLore() : new ArrayList<>();
+
+        if (mode.equals("first")) {
+            loreList.add(0, lore);
+        } else if (mode.equals("last")) {
+            index = loreList.size();
+            loreList.add(lore);
+        } else {
+            for (int i = 0; i < loreList.size(); i++) {
+                if (StringUtil.clearColor(loreList.get(i)).contains(locator)) {
+                    index = i;
                 }
             }
-
-            meta.setLore(loreList);
-            item.setItemMeta(meta);
-        } finally {
-            JsonObject obj = new JsonObject();
-            // 撤回类型，replace 或 delete
-            obj.addProperty("withdraw", withdraw);
-            // 如果为replace，原lore
-            obj.addProperty("oldLore", oldLore);
-            // 撤回的行
-            obj.addProperty("index", index);
-            json.add("LoreAdd", obj);
+            if ("before".equals(mode)) {
+                // 没找到locator时回退为first
+                if (index == null) {
+                    index = 0;
+                }
+                loreList.add(index, lore);
+            } else if ("after".equals(mode)) {
+                // 没找到locator时回退为last
+                if (index == null) {
+                    index = loreList.size()-1;
+                }
+                loreList.add(index+1, lore);
+            } else { // line
+                oldLore = loreList.get(index);
+                loreList.set(index, oldLore + lore);
+                withdraw = "replace";
+            }
         }
+
+        meta.setLore(loreList);
+        item.setItemMeta(meta);
+
+        String countNbtKey = "LoreAdd_" + StringUtil.c(lore);
+        int count = nbtItem.getInteger(countNbtKey);
+        nbtItem.setInteger(countNbtKey, count+1);
     }
 
     @Override
@@ -105,6 +108,7 @@ public class LoreAddReward extends ItemReward {
         }
         List<String> locatorModeList = Arrays.asList("before", "after", "line");
         List<String> modeList = Arrays.asList("first", "last", "before", "after", "line");
+        // TODO 需要补充 line 模式下的 loreList 检查（该模式没有默认回退）
         if (!modeList.contains(mode)) {
             throw new ConditionException("无效的lore匹配模式: " + mode + ", 请联系管理员");
         }
