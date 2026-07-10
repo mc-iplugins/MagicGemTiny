@@ -90,6 +90,7 @@ public abstract class Reward {
         REWARDS_MAP.put("Name", NameReward::new);
         REWARDS_MAP.put("NBTDouble", NBTDoubleReward::new);
         REWARDS_MAP.put("NBTString", NBTStringReward::new);
+        REWARDS_MAP.put("Potion", PotionReward::new);
         REWARDS_MAP.put("Unbreakable", UnbreakableReward::new);
         // player
         REWARDS_MAP.put("Command", CommandReward::new);

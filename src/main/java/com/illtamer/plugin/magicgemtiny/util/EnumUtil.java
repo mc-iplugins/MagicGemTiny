@@ -7,8 +7,7 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
+import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
@@ -51,6 +50,18 @@ public class EnumUtil {
             return null;
         }
         return Registry.ENCHANTMENT.get(key);
+    }
+
+    @Nullable
+    public static PotionEffectType getPotionEffectType(String name) {
+        if (StringUtil.isBlank(name)) {
+            return null;
+        }
+        NamespacedKey key = NamespacedKey.fromString(name.toLowerCase(Locale.ROOT));
+        if (key == null) {
+            return null;
+        }
+        return Registry.EFFECT.get(key);
     }
 
 }
