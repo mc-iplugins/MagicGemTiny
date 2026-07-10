@@ -8,6 +8,7 @@ import com.illtamer.plugin.magicgemtiny.listener.ItemGemListener;
 import com.illtamer.plugin.magicgemtiny.listener.PlayerGemListener;
 import com.illtamer.plugin.magicgemtiny.listener.PreventListener;
 import com.illtamer.plugin.magicgemtiny.reward.Reward;
+import com.illtamer.plugin.magicgemtiny.task.EquipmentPotionEffectTask;
 import lombok.Getter;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.PluginManager;
@@ -42,10 +43,13 @@ public class MagicGemTiny extends JavaPlugin {
         manager.registerEvents(new PreventListener(), this);
         manager.registerEvents(new PlayerGemListener(), this);
         manager.registerEvents(new ItemGemListener(), this);
+
+        EquipmentPotionEffectTask.start();
     }
 
     @Override
     public void onDisable() {
+        EquipmentPotionEffectTask.stop();
         // 归还所有打开的拆卸台内的装备, 防止物品丢失
         DisassembleGui.closeAll();
         instance = null;
