@@ -56,16 +56,18 @@ public class GemUtil {
             int logLevel;
             if (itemGem.isRemoveAble()) {
                 logLevel = triggerCommonRewardsOnCondition(consumed, itemGem, player, targetItemNBT, logObject);
-            } else { // 如果不可拆卸，不记录日志，只记录宝石类型
+            } else { // 如果不可拆卸，不记录还原数据，只记录宝石类型
                 logLevel = triggerCommonRewardsOnCondition(consumed, itemGem, player, targetItemNBT, new JsonObject());
             }
-            // 仅"可拆卸宝石且镶嵌成功"的记录允许拆卸, 失败记录(未改变装备)不可拆卸, 防止刷宝石
-            if (itemGem.isRemoveAble() && logLevel == 1) {
+            // 只在"镶嵌成功"时才记录日志: 失败/条件不通过均不计入 Embed 上限, 避免宝石消耗后仍白白挤占玩家的镶嵌名额
+            if (logLevel != 1) {
+                return;
+            }
+            // 可拆卸宝石标记允许拆卸(不可拆卸宝石虽然进入计数但不允许拆卸)
+            if (itemGem.isRemoveAble()) {
                 logObject.addProperty(REMOVABLE_FLAG, true);
             }
-            if (logLevel >= 0) { // 成功/失败都记录(失败记录仅用于镶嵌计数)
-                array.add(logObject);
-            }
+            array.add(logObject);
         });
     }
 
