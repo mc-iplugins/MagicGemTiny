@@ -1,0 +1,41 @@
+# 宝石分解台 GUI 配置
+# 通过 /mgem breakdown 打开
+# 只要宝石配置了非空 BreakDown 字段，就可以在这里进行分解
+
+Title: "&8&l&k||&6&l宝石分解台&8&l&k||"
+
+Slots:
+  - "#########"
+  - "###G#B###"
+  - "####I####"
+
+Filler: BLACK_STAINED_GLASS_PANE
+
+# 分解按钮
+Button:
+  Material: GRINDSTONE
+  Name: "&6&l开始分解"
+  Lore:
+    - "&7放入 1 颗可分解宝石后点击"
+    - "&7将按配置逐行执行 BreakDown 指令"
+  CustomModelData: 10011
+  custom-data:
+    magicgem_gui: "breakdown_button"
+    action: "breakdown"
+
+# 说明图标
+Info:
+  Material: BOOK
+  Name: "&b&l分解说明"
+  Lore:
+    - "&7分解时会执行宝石上的 BreakDown 指令"
+    - "&7支持 player / op / console 身份"
+    - "&7关闭界面时，未分解的宝石会返还"
+  CustomModelData: 10012
+  custom-data:
+    magicgem_gui: "breakdown_info"
+    action: "info"
+
+Messages:
+  InvalidGem: "&c该宝石不可分解"
+  Success: "&a分解成功"

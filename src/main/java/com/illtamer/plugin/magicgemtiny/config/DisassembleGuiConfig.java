@@ -2,6 +2,7 @@ package com.illtamer.plugin.magicgemtiny.config;
 
 import com.illtamer.lib.config.ConfigFile;
 import com.illtamer.plugin.magicgemtiny.MagicGemTiny;
+import com.illtamer.plugin.magicgemtiny.util.GuiItemUtil;
 import com.illtamer.plugin.magicgemtiny.util.StringUtil;
 import lombok.Getter;
 import org.bukkit.Material;
@@ -70,11 +71,11 @@ public class DisassembleGuiConfig {
         }
         this.rows = slots.toArray(new String[0]);
 
-        this.filler = parseMaterial(config.getString("Filler"), Material.BLACK_STAINED_GLASS_PANE);
-        this.equipHint = parseIcon(config.getConfigurationSection("EquipHint"), Material.ITEM_FRAME, "&e放入待拆卸装备");
-        this.info = parseIcon(config.getConfigurationSection("Info"), Material.BOOK, "&b拆卸说明");
-        this.prev = parseIcon(config.getConfigurationSection("Prev"), Material.ARROW, "&8上一页");
-        this.next = parseIcon(config.getConfigurationSection("Next"), Material.ARROW, "&8下一页");
+        this.filler = GuiItemUtil.parseMaterial(config.getString("Filler"), Material.BLACK_STAINED_GLASS_PANE);
+        this.equipHint = GuiItemUtil.parseIcon(config.getConfigurationSection("EquipHint"), Material.ITEM_FRAME, "&e放入待拆卸装备");
+        this.info = GuiItemUtil.parseIcon(config.getConfigurationSection("Info"), Material.BOOK, "&b拆卸说明");
+        this.prev = GuiItemUtil.parseIcon(config.getConfigurationSection("Prev"), Material.ARROW, "&8上一页");
+        this.next = GuiItemUtil.parseIcon(config.getConfigurationSection("Next"), Material.ARROW, "&8下一页");
         this.clickTip = StringUtil.c(config.getString("ClickTip", "&e▶ 点击拆卸此宝石"));
     }
 

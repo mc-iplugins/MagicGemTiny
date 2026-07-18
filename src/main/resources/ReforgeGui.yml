@@ -1,0 +1,48 @@
+# 宝石重铸台 GUI 配置
+# 通过 /mgem reforge 打开
+# 需要放入 3 颗同 Reforge 类型的宝石，点击按钮后将随机产出新宝石
+
+Title: "&8&l&k||&d&l宝石重铸台&8&l&k||"
+
+# 每行 9 个字符，最多 6 行
+Slots:
+  - "#########"
+  - "##1#2#3##"
+  - "####R####"
+  - "####O####"
+  - "####I####"
+
+# 边框填充图标材质
+Filler: BLACK_STAINED_GLASS_PANE
+
+# 重铸按钮
+Button:
+  Material: ANVIL
+  Name: "&d&l开始重铸"
+  Lore:
+    - "&7放入 3 颗同 Reforge 类型宝石后点击"
+    - "&7将消耗 3 颗宝石并产出新的宝石"
+  CustomModelData: 10001
+  custom-data:
+    magicgem_gui: "reforge_button"
+    action: "reforge"
+
+# 说明图标
+Info:
+  Material: BOOK
+  Name: "&b&l重铸说明"
+  Lore:
+    - "&7请放入 3 颗同 Reforge 类型的宝石"
+    - "&7若产物槽已有物品，请先取走产物"
+    - "&7关闭界面时，未消耗的宝石会返还"
+  CustomModelData: 10002
+  custom-data:
+    magicgem_gui: "reforge_info"
+    action: "info"
+
+Messages:
+  NeedThree: "&c请放入 3 颗可重铸宝石"
+  SameReforge: "&c3 颗宝石必须属于同一 Reforge 类型"
+  OutputNotEmpty: "&c请先取走重铸产物"
+  NoPool: "&c该 Reforge 类型未配置重铸产出"
+  Success: "&a重铸成功"

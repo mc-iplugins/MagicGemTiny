@@ -1,0 +1,14 @@
+# 插件主配置
+# 用于配置不同 Reforge 类型的宝石重铸产出池
+# 你可以按需添加更多 Reforge 分组
+Reforge:
+  default:
+    - Name: 无限宝石
+      Weight: 60
+    - Name: 装备护符
+      Weight: 40
+  rare:
+    - Name: 无限-无限宝石
+      Weight: 30
+    - Name: 精准时运切换宝石
+      Weight: 70

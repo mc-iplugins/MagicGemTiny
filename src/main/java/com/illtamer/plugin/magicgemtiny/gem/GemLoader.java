@@ -152,6 +152,8 @@ public class GemLoader {
                 checkSupportKeys(gem = itemGem, section.getKeys(false));
             }
 
+            gem.setReforge(section.getString("Reforge"));
+            gem.setBreakDown(new ArrayList<>(section.getStringList("BreakDown")));
             gem.setFailTip(section.getString("FailTip"));
         }
         return gemMap;

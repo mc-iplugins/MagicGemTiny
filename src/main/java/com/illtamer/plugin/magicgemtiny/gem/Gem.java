@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +30,11 @@ public abstract class Gem {
     // 宝石使用失败的提示信息，如果没有则使用默认提示
     private @Nullable String failTip;
     protected final List<Reward> rewards;
+    // 重铸类型，非空时可参与重铸与分解配置
+    @Nullable
+    protected String reforge;
+    // 分解台执行指令列表
+    protected List<String> breakDown = Collections.emptyList();
 
     public Gem(
             String name,
@@ -62,7 +68,7 @@ public abstract class Gem {
     public static Set<String> supportKeys() {
         return new HashSet<>(Arrays.asList(
                 "Name", "Type", "Texture", "Material", "Display", "Tips", "CustomModelData",
-                "Success", "SuccessTip", "FailTip", "Rewards", "Color"
+                "Success", "SuccessTip", "FailTip", "Rewards", "Color", "Reforge", "BreakDown"
         ));
     }
 

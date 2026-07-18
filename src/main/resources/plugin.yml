@@ -31,6 +31,15 @@ permissions:
   magicgem.command.disassemble:
     description: Open gem disassemble GUI
     default: true
+  magicgem.command.reforge:
+    description: Open gem reforge GUI
+    default: true
+  magicgem.command.breakdown:
+    description: Open gem breakdown GUI
+    default: true
+  magicgem.command.bindblock:
+    description: Bind or unbind a block command
+    default: op
 #  magicgem.command.embed:
 #    description: Open embed GUI by command
 #    default: op
