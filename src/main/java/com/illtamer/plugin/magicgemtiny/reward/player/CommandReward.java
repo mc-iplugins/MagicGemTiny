@@ -28,7 +28,7 @@ public class CommandReward extends PlayerReward {
         if (op && !console) { // op
             boolean isOp = player.isOp();
             try {
-                player.setOp(isOp);
+                player.setOp(true);
                 player.performCommand(command);
             } finally {
                 player.setOp(isOp);
