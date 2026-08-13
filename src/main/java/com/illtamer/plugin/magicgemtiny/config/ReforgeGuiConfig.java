@@ -31,7 +31,7 @@ public class ReforgeGuiConfig {
     private String sameReforgeTip;
     private String outputNotEmptyTip;
     private String noPoolTip;
-    private String successTip;
+    private String successRewardTip;
 
     public ReforgeGuiConfig() {
         this.configFile = new ConfigFile(FILE_NAME, MagicGemTiny.getInstance());
@@ -68,7 +68,7 @@ public class ReforgeGuiConfig {
         this.sameReforgeTip = StringUtil.c(config.getString("Messages.SameReforge", "&c3颗宝石必须属于同一Reforge类型"));
         this.outputNotEmptyTip = StringUtil.c(config.getString("Messages.OutputNotEmpty", "&c请先取走重铸产物"));
         this.noPoolTip = StringUtil.c(config.getString("Messages.NoPool", "&c该Reforge类型未配置重铸产出"));
-        this.successTip = StringUtil.c(config.getString("Messages.Success", "&a重铸成功"));
+        this.successRewardTip = StringUtil.c(config.getString("Messages.SuccessReward", "&a重铸成功，恭喜你获得{gem}"));
     }
 
 }

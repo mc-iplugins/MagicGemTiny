@@ -45,4 +45,5 @@ Messages:
   SameReforge: "&c3 颗宝石必须属于同一 Reforge 类型"
   OutputNotEmpty: "&c请先取走重铸产物"
   NoPool: "&c该 Reforge 类型未配置重铸产出"
-  Success: "&a重铸成功"
+  # {gem} 会替换为产出宝石物品的 displayname
+  SuccessReward: "&a重铸成功，恭喜你获得{gem}"

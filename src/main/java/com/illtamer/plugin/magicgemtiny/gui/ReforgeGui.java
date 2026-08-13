@@ -15,6 +15,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class ReforgeGui {
         this.gui.addElement(new GuiStorageElement(
                 OUTPUT_CHAR, storage, 3,
                 this::scheduleRefresh,
-                info -> false,
+                info -> info.getItem() == null || info.getItem().getType().isAir(),
                 info -> true
         ));
         this.gui.addElement(new StaticGuiElement(BUTTON_CHAR, config.getButton(), click -> {
@@ -160,13 +161,27 @@ public class ReforgeGui {
             return;
         }
 
+        ItemStack resultItem = resultGem.getItem(1);
         for (int i = 0; i < 3; i++) {
             storage.setItem(i, null);
         }
-        storage.setItem(3, resultGem.getItem(1));
+        storage.setItem(3, resultItem);
         gui.playClickSound();
-        player.sendMessage(config.getSuccessTip());
+        sendSuccessRewardTip(resultItem, resultGem);
         scheduleRefresh();
+    }
+
+    private void sendSuccessRewardTip(ItemStack resultItem, Gem resultGem) {
+        String tip = config.getSuccessRewardTip();
+        if (StringUtil.isBlank(tip)) {
+            return;
+        }
+        String displayName = resultGem.getName();
+        ItemMeta meta = resultItem.getItemMeta();
+        if (meta != null && meta.hasDisplayName()) {
+            displayName = meta.getDisplayName();
+        }
+        player.sendMessage(tip.replace("{gem}", displayName));
     }
 
     private Gem getGem(ItemStack item) {
