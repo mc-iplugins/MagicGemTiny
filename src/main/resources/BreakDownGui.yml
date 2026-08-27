@@ -1,6 +1,7 @@
 # 宝石分解台 GUI 配置
 # 通过 /mgem breakdown 打开
 # 只要宝石配置了非空 BreakDown 字段，就可以在这里进行分解
+# Title、Button.Name、Button.Lore、Info.Name、Info.Lore 及 Messages 均支持 PlaceholderAPI 变量(如 %player_name%)
 
 Title: "&8&l&k||&6&l宝石分解台&8&l&k||"
 

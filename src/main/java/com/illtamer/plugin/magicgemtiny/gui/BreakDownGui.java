@@ -4,6 +4,7 @@ import com.illtamer.plugin.magicgemtiny.MagicGemTiny;
 import com.illtamer.plugin.magicgemtiny.config.BreakDownGuiConfig;
 import com.illtamer.plugin.magicgemtiny.entity.NBTKey;
 import com.illtamer.plugin.magicgemtiny.gem.Gem;
+import com.illtamer.plugin.magicgemtiny.hook.PlaceholderApiHook;
 import com.illtamer.plugin.magicgemtiny.util.CommandExecuteUtil;
 import com.illtamer.plugin.magicgemtiny.util.ItemUtil;
 import com.illtamer.plugin.magicgemtiny.util.StringUtil;
@@ -16,6 +17,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,7 @@ public class BreakDownGui {
         this.storage = Bukkit.createInventory(null, 9, "MagicGemBreakDownStorage");
 
         MagicGemTiny plugin = MagicGemTiny.getInstance();
-        this.gui = new InventoryGui(plugin, config.getTitle(), config.getRows());
+        this.gui = new InventoryGui(plugin, PlaceholderApiHook.setPlaceholders(player, config.getTitle()), config.getRows());
         this.gui.setFiller(config.getFiller() != null ? new ItemStack(config.getFiller()) : new ItemStack(Material.AIR));
 
         this.gui.addElement(new GuiStorageElement(
@@ -54,11 +56,11 @@ public class BreakDownGui {
                 info -> validateInput(info.getItem()),
                 info -> true
         ));
-        this.gui.addElement(new StaticGuiElement(BUTTON_CHAR, config.getButton(), click -> {
+        this.gui.addElement(new StaticGuiElement(BUTTON_CHAR, applyPlaceholders(config.getButton()), click -> {
             onBreakDownClick();
             return true;
         }));
-        this.gui.addElement(new StaticGuiElement(INFO_CHAR, config.getInfo(), click -> true));
+        this.gui.addElement(new StaticGuiElement(INFO_CHAR, applyPlaceholders(config.getInfo()), click -> true));
 
         this.gui.setCloseAction(close -> {
             OPEN_GUIS.remove(player.getUniqueId(), this);
@@ -99,7 +101,7 @@ public class BreakDownGui {
         }
         Gem gem = getGem(item);
         if (gem == null || gem.getBreakDown() == null || gem.getBreakDown().isEmpty()) {
-            player.sendMessage(config.getInvalidGemTip());
+            player.sendMessage(PlaceholderApiHook.setPlaceholders(player, config.getInvalidGemTip()));
             return false;
         }
         return true;
@@ -109,7 +111,7 @@ public class BreakDownGui {
         ItemStack item = storage.getItem(0);
         Gem gem = getGem(item);
         if (item == null || item.getType().isAir() || item.getAmount() != 1 || gem == null || gem.getBreakDown() == null || gem.getBreakDown().isEmpty()) {
-            player.sendMessage(config.getInvalidGemTip());
+            player.sendMessage(PlaceholderApiHook.setPlaceholders(player, config.getInvalidGemTip()));
             return;
         }
 
@@ -118,8 +120,28 @@ public class BreakDownGui {
         }
         storage.setItem(0, null);
         gui.playClickSound();
-        player.sendMessage(config.getSuccessTip());
+        player.sendMessage(PlaceholderApiHook.setPlaceholders(player, config.getSuccessTip()));
         scheduleRefresh();
+    }
+
+    /**
+     * 克隆配置中的 GUI 物品并为当前玩家解析其中的 PAPI 变量,
+     * 避免直接修改配置内共享实例导致变量被固定为首次解析结果。
+     */
+    private ItemStack applyPlaceholders(ItemStack source) {
+        ItemStack item = source.clone();
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            return item;
+        }
+        if (meta.hasDisplayName()) {
+            meta.setDisplayName(PlaceholderApiHook.setPlaceholders(player, meta.getDisplayName()));
+        }
+        if (meta.hasLore()) {
+            meta.setLore(PlaceholderApiHook.setPlaceholders(player, meta.getLore()));
+        }
+        item.setItemMeta(meta);
+        return item;
     }
 
     private Gem getGem(ItemStack item) {
