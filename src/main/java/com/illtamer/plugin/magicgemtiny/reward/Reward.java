@@ -88,6 +88,7 @@ public abstract class Reward {
         REWARDS_MAP.put("LoreReplace", LoreReplaceReward::new);
         REWARDS_MAP.put("LoreVar", LoreVarReward::new);
         REWARDS_MAP.put("Name", NameReward::new);
+        REWARDS_MAP.put("NameSuperscript", NameSuperscriptReward::new);
         REWARDS_MAP.put("NBTDouble", NBTDoubleReward::new);
         REWARDS_MAP.put("NBTString", NBTStringReward::new);
         REWARDS_MAP.put("Potion", PotionReward::new);

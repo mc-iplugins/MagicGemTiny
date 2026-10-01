@@ -184,6 +184,25 @@ Version: 1.05
   Rewards:
     - ItemFlag{flag=HIDE_ATTRIBUTES}
 
+内置-名称升阶宝石:
+  Name: 名称升阶宝石
+  Require:
+    - WEAPON
+    - ARMOR
+    - TOOL
+  Display: "&8&l&k||&e&l名称升阶宝石&8&l&k||"
+  Tips:
+    - "&e&l名称升阶宝石 &7品质: &a&l稀有"
+    - "&7在工作台内点击此宝石"
+    - "&7再点击带有自定义名称的装备"
+    - "&7即可在名称末尾添加/提升上标 (⁺¹ → ⁺²)"
+  SuccessTip: "&a装备名称上标已提升"
+  Material: GLOWSTONE_DUST
+  Embed: 1
+  Rewards:
+    # 可选参数 amount(a): 每次增加的上标数值, 默认 1
+    - NameSuperscript{amount=1}
+
 # 暂不支持
 #内置-技能隐藏粉尘:
 #  Name: 技能隐藏粉尘
