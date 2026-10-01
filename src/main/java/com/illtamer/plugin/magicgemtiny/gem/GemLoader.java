@@ -84,6 +84,11 @@ public class GemLoader {
             DynamicValue success = new DynamicValue(section.getString("Success", "100"));
             String successTip = section.getString("SuccessTip", "none");
             successTip = "none".equalsIgnoreCase(successTip) ? null : successTip;
+            // Rewards 写成非列表(如缩进错误、注释丢失 #)时 getStringList 会静默返回空列表, 这里显式告警
+            if (section.contains("Rewards") && !section.isList("Rewards")) {
+                logger.warning("宝石 " + gemUniqueName + " 的 Rewards 不是列表, 该宝石将没有任何奖励, 请检查缩进或注释格式: "
+                        + section.get("Rewards"));
+            }
             List<Reward> rewards = Reward.build(section.getStringList("Rewards"));
 
             // 通用外观
