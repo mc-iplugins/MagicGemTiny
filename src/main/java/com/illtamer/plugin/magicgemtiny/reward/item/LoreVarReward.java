@@ -79,7 +79,7 @@ public class LoreVarReward extends ItemReward {
                 int loreIndex = pair.getKey();
                 String oldLore = loreList.get(loreIndex);
                 double oldValue = pair.getValue();
-                String newLore = oldLore.replace(String.format(format, oldValue), String.format(format, newValue));
+                String newLore = replaceNumberAtIndex(oldLore, index, String.format(format, newValue));
                 loreList.set(loreIndex, newLore);
                 // record
                 record(loreIndex, oldValue, oldLore, newValue, newLore, true, record);
@@ -249,21 +249,23 @@ public class LoreVarReward extends ItemReward {
     /**
      * 查找是否存在现有的变量名
      * @return lore所在索引, oldValue
+     * @apiNote 匹配前对 lore 与目标行一并去除颜色代码,
+     *      以兼容颜色码插在文字中间的写法(如 星火&x&F&F&F&F&C&C附带伤害)
      * */
     @Nullable
     protected Pair<Integer, Double> anyMatchInLoreList(List<String> loreList) {
         // 正则：匹配整数或浮点数
-        Pattern numberPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+        String target = toVisibleText(lore).text;
 
         for (int i = 0; i < loreList.size(); i++) {
-            String plainLine = loreList.get(i);
-            if (plainLine.contains(lore)) {
-                Matcher m = numberPattern.matcher(plainLine);
+            String plainLine = toVisibleText(loreList.get(i)).text;
+            if (plainLine.contains(target)) {
+                Matcher matcher = NUMBER_PATTERN.matcher(plainLine);
                 int count = 0;
-                while (m.find()) {
+                while (matcher.find()) {
                     count++;
                     if (count == index) {
-                        return new Pair<>(i, Double.parseDouble(m.group()));
+                        return new Pair<>(i, Double.parseDouble(matcher.group()));
                     }
                 }
                 // TODO 处理罗马数字逻辑 (如果 format 是 ROMAN)
@@ -271,6 +273,110 @@ public class LoreVarReward extends ItemReward {
         }
         return null;
     }
+
+    /**
+     * 只替换去色后第 targetIndex 个数字, 保留原始 lore 的所有颜色码和其它数字。
+     * 该方法包可见, 便于回归测试覆盖颜色码本身含数字的场景。
+     * */
+    static String replaceNumberAtIndex(String rawLine, int targetIndex, String replacement) {
+        VisibleText visible = toVisibleText(rawLine);
+        Matcher matcher = NUMBER_PATTERN.matcher(visible.text);
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+            if (count == targetIndex) {
+                int rawStart = visible.rawStarts.get(matcher.start());
+                int rawEnd = visible.rawEnds.get(matcher.end() - 1);
+                return rawLine.substring(0, rawStart) + replacement + rawLine.substring(rawEnd);
+            }
+        }
+        return rawLine;
+    }
+
+    /**
+     * 将原始 lore 转为可见文本, 同时记录每个可见字符对应的原始字符区间。
+     * 支持 §/& legacy 颜色码、§x/&x 六位 hex 颜色码和 &#RRGGBB 写法。
+     * */
+    private static VisibleText toVisibleText(String rawText) {
+        StringBuilder text = new StringBuilder(rawText.length());
+        List<Integer> rawStarts = new ArrayList<>();
+        List<Integer> rawEnds = new ArrayList<>();
+
+        for (int i = 0; i < rawText.length();) {
+            int colorEnd = colorCodeEnd(rawText, i);
+            if (colorEnd != -1) {
+                i = colorEnd;
+                continue;
+            }
+            rawStarts.add(i);
+            rawEnds.add(i + 1);
+            text.append(rawText.charAt(i));
+            i++;
+        }
+        return new VisibleText(text.toString(), rawStarts, rawEnds);
+    }
+
+    /**
+     * 返回从 start 开始的颜色码结束位置, 非颜色码返回 -1。
+     * */
+    private static int colorCodeEnd(String text, int start) {
+        if (start + 1 >= text.length()) {
+            return -1;
+        }
+        char marker = text.charAt(start);
+        if (marker != '§' && marker != '&') {
+            return -1;
+        }
+
+        char code = text.charAt(start + 1);
+        if (code == '#') {
+            if (start + 8 <= text.length()) {
+                for (int i = start + 2; i < start + 8; i++) {
+                    if (!isHexDigit(text.charAt(i))) {
+                        return -1;
+                    }
+                }
+                return start + 8;
+            }
+            return -1;
+        }
+
+        if (code == 'x' || code == 'X') {
+            int cursor = start + 2;
+            for (int i = 0; i < 6; i++) {
+                if (cursor + 1 >= text.length()
+                        || (text.charAt(cursor) != '§' && text.charAt(cursor) != '&')
+                        || !isHexDigit(text.charAt(cursor + 1))) {
+                    return -1;
+                }
+                cursor += 2;
+            }
+            return cursor;
+        }
+
+        return isLegacyColorCode(code) ? start + 2 : -1;
+    }
+
+    private static boolean isLegacyColorCode(char code) {
+        return code >= '0' && code <= '9'
+                || code >= 'a' && code <= 'f'
+                || code >= 'A' && code <= 'F'
+                || code >= 'k' && code <= 'o'
+                || code >= 'K' && code <= 'O'
+                || code == 'r' || code == 'R';
+    }
+
+    private static boolean isHexDigit(char c) {
+        return c >= '0' && c <= '9'
+                || c >= 'a' && c <= 'f'
+                || c >= 'A' && c <= 'F';
+    }
+
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("-?\\d+(\\.\\d+)?");
+
+    private record VisibleText(String text, List<Integer> rawStarts, List<Integer> rawEnds) {
+    }
+
 
     /**
      * 校验逻辑表达式 (如 v<=10)
