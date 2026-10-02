@@ -59,4 +59,43 @@ class SuperscriptUtilTest {
         assertNull(SuperscriptUtil.applyLevel(null, 1));
     }
 
+    // ===== prefix =====
+
+    @Test
+    void increase_withPrefix_appends() {
+        // 示例: §c宝剑001§l + prefix=§c -> §c宝剑001§l§c⁺¹
+        assertEquals("§c宝剑001§l§c⁺¹", SuperscriptUtil.increase("§c宝剑001§l", 1, "§c"));
+    }
+
+    @Test
+    void increase_withPrefix_reusesExistingPrefix() {
+        // 已有同前缀时升阶, 前缀不重复
+        assertEquals("剑§c⁺²", SuperscriptUtil.increase("剑§c⁺¹", 1, "§c"));
+    }
+
+    @Test
+    void increase_withPrefix_replacesForeignSuffixBlock() {
+        // 已有前缀不同或只有上标时, 整块摘除后按配置前缀重写
+        assertEquals("剑§c⁺²", SuperscriptUtil.increase("剑§b⁺¹", 1, "§c"));
+        // 无前缀但已有上标: 既有阶数仍累加, 且补上前缀
+        assertEquals("剑§c⁺²", SuperscriptUtil.increase("剑⁺¹", 1, "§c"));
+    }
+
+    @Test
+    void increase_withMultiSegmentPrefix() {
+        assertEquals("剑§c§l⁺¹", SuperscriptUtil.increase("剑", 1, "§c§l"));
+        assertEquals("剑§c§l⁺²", SuperscriptUtil.increase("剑§c§l⁺¹", 1, "§c§l"));
+    }
+
+    @Test
+    void decrease_withPrefix_removesWholeSuffixBlock() {
+        assertEquals("剑", SuperscriptUtil.increase("剑§c⁺¹", -1, "§c"));
+    }
+
+    @Test
+    void increase_withoutPrefix_keepsExistingPrefix() {
+        // 未配置 prefix 时不改动已有前缀, 只升上标
+        assertEquals("剑§c⁺²", SuperscriptUtil.increase("剑§c⁺¹", 1));
+    }
+
 }

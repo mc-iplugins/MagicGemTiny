@@ -200,8 +200,8 @@ Version: 1.05
   Material: GLOWSTONE_DUST
   Embed: 1
   Rewards:
-    # 可选参数 amount(a): 每次增加的上标数值, 默认 1
-    - NameSuperscript{amount=1}
+    # 参数以英文分号 ; 分隔: amount(a) 每次增加的上标数值, 默认 1; prefix(p) 上标数字前的前缀(如 &c), 已有则复用, 缺失则补上
+    - NameSuperscript{prefix=&c;amount=1}
 
 # 暂不支持
 #内置-技能隐藏粉尘:

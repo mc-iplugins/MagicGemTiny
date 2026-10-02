@@ -168,7 +168,7 @@ public abstract class Reward {
 
             if (StringUtil.isNotBlank(paramsStr)) {
                 Map<String, String> parameters = new HashMap<>();
-                // 解析参数部分
+                // 解析参数部分; 分隔符仅支持英文分号 ';'
                 String[] paramPairs = paramsStr.split(";");
                 for (String pair : paramPairs) {
                     pair = pair.trim();

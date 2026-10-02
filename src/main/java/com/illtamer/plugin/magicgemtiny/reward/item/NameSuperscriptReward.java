@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.illtamer.plugin.magicgemtiny.exception.ConditionException;
 import com.illtamer.plugin.magicgemtiny.reward.ItemReward;
+import com.illtamer.plugin.magicgemtiny.util.StringUtil;
 import com.illtamer.plugin.magicgemtiny.util.SuperscriptUtil;
 import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.entity.Player;
@@ -13,14 +14,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 /**
  * 物品名末尾上标升阶
  * @apiNote 名称末尾无上标时追加 ⁺¹, 已有上标时在原值基础上累加(⁺¹ -> ⁺²)。
- *      可选参数 amount(a), 默认 1。仅对带自定义显示名的物品生效。
- *      拆卸时按记录的增量回退上标。
+ *      可选参数 amount(a), 默认 1; prefix(p), 上标数字前的前缀(如 "§c"),
+ *      已存在则复用, 缺失则在写入上标前补上, 支持 & 色码。
+ *      仅对带自定义显示名的物品生效。拆卸时按记录的增量回退上标。
  * */
 public class NameSuperscriptReward extends ItemReward {
 
     private static final String LOG_KEY = "NameSuperscript";
 
     private int amount;
+    private String prefix;
 
     @Override
     protected void init() {
@@ -30,6 +33,11 @@ public class NameSuperscriptReward extends ItemReward {
             value = getParamInteger("a", null);
         }
         amount = value == null ? 1 : value;
+        String prefixValue = getParamString("prefix", null);
+        if (prefixValue == null) {
+            prefixValue = getParamString("p", null);
+        }
+        prefix = StringUtil.isBlank(prefixValue) ? null : StringUtil.c(prefixValue);
     }
 
     @Override
@@ -39,7 +47,7 @@ public class NameSuperscriptReward extends ItemReward {
         if (meta == null || !meta.hasDisplayName()) {
             return; // tryTest 已校验, 此处兜底
         }
-        meta.setDisplayName(SuperscriptUtil.increase(meta.getDisplayName(), amount));
+        meta.setDisplayName(SuperscriptUtil.increase(meta.getDisplayName(), amount, prefix));
         item.setItemMeta(meta);
         json.addProperty(LOG_KEY, amount);
     }
@@ -81,7 +89,7 @@ public class NameSuperscriptReward extends ItemReward {
         if (SuperscriptUtil.getLevel(name) < delta) {
             return false;
         }
-        meta.setDisplayName(SuperscriptUtil.increase(name, -delta));
+        meta.setDisplayName(SuperscriptUtil.increase(name, -delta, prefix));
         item.setItemMeta(meta);
         return true;
     }
